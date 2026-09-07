@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barking with Style Dog Grooming, Grimsby (concept mock-up)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage-900:#26332a;
+    --sage-700:#3f5745;
+    --sage-600:#4e6b52;
+    --sage-400:#8ba585;
+    --sage-200:#c7d6bd;
+    --sage-100:#e4ecda;
+    --rust-500:#c1622d;
+    --rust-300:#dba07c;
+    --ink:#20241d;
+    --paper:#faf6ec;
+    --paper-dim:#f1ead9;
+    --paper-line:#e4dbc4;
+    --white:#fffdf7;
+
+    --space-1:0.5rem;
+    --space-2:1rem;
+    --space-3:1.5rem;
+    --space-4:2rem;
+    --space-5:3rem;
+    --space-6:4rem;
+    --space-7:6rem;
+    --space-8:8rem;
+
+    --r-sm:6px;
+    --r-md:16px;
+    --r-lg:32px;
+    --r-pill:999px;
+
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    font-weight:500;
+    margin:0;
+    color:var(--sage-900);
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding-left:var(--space-3);
+    padding-right:var(--space-3);
+  }
+  @media (min-width:720px){
+    .wrap{ padding-left:var(--space-5); padding-right:var(--space-5); }
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:var(--space-1);
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:1rem;
+    padding:0.95rem 1.6rem;
+    border-radius:var(--r-pill);
+    background:var(--sage-600);
+    color:var(--white);
+    text-decoration:none;
+    border:1px solid var(--sage-600);
+    transition:transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    box-shadow:0 8px 20px -10px rgba(38,51,42,0.45);
+  }
+  .btn:hover{ background:var(--sage-700); transform:translateY(-2px); }
+  .btn.ghost{
+    background:transparent;
+    color:var(--sage-900);
+    border:1px solid var(--sage-400);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{ background:var(--sage-100); }
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    background:rgba(250,246,236,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color 0.3s ease;
+  }
+  header.site.scrolled{ border-bottom-color:var(--paper-line); }
+  header.site .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:var(--space-2);
+    padding-bottom:var(--space-2);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-family:var(--serif);
+    font-size:1.15rem;
+    color:var(--sage-900);
+    text-decoration:none;
+  }
+  .brand svg{ width:30px; height:30px; flex:none; }
+  header.site nav a{
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+    color:var(--sage-700);
+  }
+  header.site .call{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    font-weight:600;
+    color:var(--sage-900);
+    text-decoration:none;
+    font-size:0.95rem;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding-top:calc(var(--space-8) + var(--space-3));
+    padding-bottom:var(--space-7);
+    overflow:hidden;
+  }
+  .hero-bg-shape{
+    position:absolute;
+    right:-18%;
+    top:-10%;
+    width:70vw;
+    max-width:820px;
+    aspect-ratio:1;
+    background:radial-gradient(circle at 35% 30%, var(--sage-100), transparent 68%);
+    border-radius:50%;
+    z-index:0;
+  }
+  .hero .wrap{ position:relative; z-index:1; }
+  .eyebrow-tag{
+    display:inline-block;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--sage-700);
+    background:var(--sage-100);
+    padding:0.4rem 0.9rem;
+    border-radius:var(--r-pill);
+    margin-bottom:var(--space-3);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.6vw, 4.2rem);
+    line-height:1.04;
+    max-width:15ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--sage-600);
+  }
+  .hero p.lede{
+    margin-top:var(--space-3);
+    max-width:46ch;
+    font-size:1.15rem;
+    color:var(--sage-700);
+  }
+  .hero .actions{
+    margin-top:var(--space-4);
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    align-items:center;
+  }
+  .hero .actions .note{
+    font-size:0.9rem;
+    color:var(--sage-700);
+  }
+  .hero-illustration{
+    margin-top:var(--space-6);
+    display:flex;
+    justify-content:center;
+  }
+  .hero-illustration svg{ width:min(420px, 80vw); height:auto; }
+
+  /* ---------- Section scaffolding ---------- */
+  section{ position:relative; padding:var(--space-7) 0; }
+  section.dim{ background:var(--paper-dim); }
+  .section-head{ max-width:42ch; margin-bottom:var(--space-5); }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); line-height:1.12; }
+  .section-head p{ margin-top:var(--space-2); color:var(--sage-700); font-size:1.05rem; }
+
+  /* ---------- Essence / intro ---------- */
+  .essence{
+    display:grid;
+    gap:var(--space-5);
+  }
+  @media (min-width:860px){
+    .essence{ grid-template-columns: 1.1fr 0.9fr; align-items:start; }
+  }
+  .essence-copy h2{ font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1.15; max-width:16ch; }
+  .essence-copy p{ margin-top:var(--space-3); color:var(--sage-700); font-size:1.08rem; max-width:52ch; }
+  .fact-grid{
+    margin-top:var(--space-4);
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:var(--space-2);
+  }
+  .fact{
+    background:var(--white);
+    border:1px solid var(--paper-line);
+    border-radius:var(--r-md);
+    padding:var(--space-2) var(--space-2);
+  }
+  .fact strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:1.6rem;
+    color:var(--sage-600);
+  }
+  .fact span{
+    display:block;
+    margin-top:0.2rem;
+    font-size:0.88rem;
+    color:var(--sage-700);
+  }
+  .essence-visual{
+    background:var(--sage-900);
+    border-radius:var(--r-lg);
+    padding:var(--space-5) var(--space-4);
+    color:var(--paper);
+  }
+  .essence-visual h3{
+    color:var(--paper);
+    font-size:1.4rem;
+    font-weight:500;
+    line-height:1.3;
+  }
+  .essence-visual ul{ list-style:none; padding:0; margin:var(--space-3) 0 0; display:grid; gap:var(--space-2); }
+  .essence-visual li{
+    display:flex;
+    gap:0.7rem;
+    align-items:flex-start;
+    font-size:0.98rem;
+    color:var(--sage-100);
+  }
+  .essence-visual li svg{ flex:none; width:22px; height:22px; margin-top:2px; }
+
+  /* ---------- Calm Line centerpiece ---------- */
+  .calmline{
+    background:var(--sage-900);
+    color:var(--paper);
+    padding:0;
+    overflow:hidden;
+  }
+  .calmline-intro{
+    padding-top:var(--space-7);
+    padding-bottom:var(--space-4);
+    text-align:center;
+  }
+  .calmline-intro h2{ color:var(--paper); font-size:clamp(2rem,4vw,2.8rem); max-width:20ch; margin:0 auto; }
+  .calmline-intro p{ color:var(--sage-200); max-width:44ch; margin:var(--space-2) auto 0; }
+
+  .calmline-stage{
+    position:relative;
+    height:340vh;
+  }
+  .calmline-pin{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:var(--space-4) var(--space-3);
+  }
+  .calmline-art{
+    width:min(560px, 88vw);
+  }
+  .calmline-caption{
+    margin-top:var(--space-4);
+    min-height:3.2em;
+    text-align:center;
+    max-width:34ch;
+  }
+  .calmline-caption p{
+    font-family:var(--serif);
+    font-size:clamp(1.2rem, 2.6vw, 1.6rem);
+    color:var(--paper);
+    opacity:0;
+    line-height:1.35;
+  }
+  .calmline-progress{
+    margin-top:var(--space-3);
+    width:min(340px, 70vw);
+    height:3px;
+    background:rgba(250,246,236,0.18);
+    border-radius:var(--r-pill);
+    overflow:hidden;
+  }
+  .calmline-progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--rust-500), var(--sage-400));
+    border-radius:var(--r-pill);
+  }
+  .calmline-labels{
+    display:flex;
+    justify-content:space-between;
+    width:min(340px, 70vw);
+    margin-top:0.5rem;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color:var(--sage-200);
+  }
+
+  /* static, reduced-motion / no-js fallback version */
+  .calmline-static{ display:none; }
+
+  /* ---------- Services ---------- */
+  .services-list{
+    display:grid;
+    gap:var(--space-3);
+  }
+  @media (min-width:760px){
+    .services-list{ grid-template-columns:repeat(12,1fr); }
+    .service:nth-child(1){ grid-column:1 / span 7; }
+    .service:nth-child(2){ grid-column:8 / span 5; }
+    .service:nth-child(3){ grid-column:1 / span 5; }
+    .service:nth-child(4){ grid-column:6 / span 7; }
+  }
+  .service{
+    background:var(--white);
+    border:1px solid var(--paper-line);
+    border-radius:var(--r-lg);
+    padding:var(--space-4);
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-2);
+  }
+  .service .icon{
+    width:52px; height:52px;
+    border-radius:var(--r-md);
+    background:var(--sage-100);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .service .icon svg{ width:28px; height:28px; }
+  .service h3{ font-size:1.35rem; }
+  .service p{ margin:0; color:var(--sage-700); font-size:0.98rem; }
+  .service .tag{
+    margin-top:auto;
+    align-self:flex-start;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--sage-600);
+    background:var(--sage-100);
+    padding:0.3rem 0.7rem;
+    border-radius:var(--r-pill);
+  }
+
+  /* ---------- Trust ---------- */
+  .trust-top{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:var(--space-3) var(--space-5);
+    margin-bottom:var(--space-5);
+  }
+  .trust-stat strong{
+    font-family:var(--serif);
+    font-size:clamp(3rem,7vw,4.5rem);
+    color:var(--sage-600);
+    line-height:1;
+  }
+  .trust-stat span{ display:block; color:var(--sage-700); font-size:0.98rem; margin-top:0.3rem; max-width:22ch; }
+  .trust-notes{
+    display:grid;
+    gap:var(--space-3);
+  }
+  @media (min-width:760px){
+    .trust-notes{ grid-template-columns:repeat(3,1fr); }
+  }
+  .trust-note{
+    border-left:3px solid var(--sage-400);
+    padding-left:var(--space-2);
+  }
+  .trust-note p{ margin:0; color:var(--sage-900); font-size:1.02rem; font-family:var(--serif); font-style:italic; line-height:1.45; }
+  .trust-note span{ display:block; margin-top:0.6rem; font-size:0.82rem; color:var(--sage-700); }
+  .trust-source{
+    margin-top:var(--space-4);
+    font-size:0.85rem;
+    color:var(--sage-700);
+  }
+
+  /* ---------- Closing CTA ---------- */
+  .closing{
+    background:var(--sage-600);
+    color:var(--paper);
+    border-radius:var(--r-lg);
+    margin:0 var(--space-3) var(--space-7);
+    padding:var(--space-6) var(--space-4);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  @media (min-width:720px){ .closing{ margin:0 var(--space-5) var(--space-7); padding:var(--space-7) var(--space-6); } }
+  .closing h2{ color:var(--white); font-size:clamp(2rem,4.6vw,3.2rem); max-width:18ch; margin:0 auto; }
+  .closing p{ color:var(--sage-100); margin:var(--space-2) auto 0; max-width:40ch; }
+  .closing .actions{
+    margin-top:var(--space-4);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:var(--space-2);
+  }
+  .closing .btn{ background:var(--white); color:var(--sage-800,#2f4335); border-color:var(--white); }
+  .closing .btn:hover{ background:var(--paper-dim); }
+  .closing .btn.ghost{ background:transparent; color:var(--white); border-color:rgba(255,255,255,0.55); }
+  .closing .btn.ghost:hover{ background:rgba(255,255,255,0.12); }
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    padding:var(--space-6) 0 var(--space-5);
+  }
+  .footer-grid{
+    display:grid;
+    gap:var(--space-4);
+  }
+  @media (min-width:760px){
+    .footer-grid{ grid-template-columns:1.3fr 1fr 1fr; }
+  }
+  footer.site h3{ font-size:1rem; color:var(--sage-900); margin-bottom:0.6rem; }
+  footer.site p, footer.site address{ margin:0; color:var(--sage-700); font-style:normal; font-size:0.95rem; line-height:1.7; }
+  footer.site .brand{ margin-bottom:var(--space-2); }
+  .footer-bottom{
+    margin-top:var(--space-5);
+    padding-top:var(--space-3);
+    border-top:1px solid var(--paper-line);
+    font-size:0.82rem;
+    color:var(--sage-700);
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    justify-content:space-between;
+  }
+  .mockup-flag{
+    max-width:60ch;
+  }
+
+  /* reveal utility */
+  .reveal{ opacity:0; transform:translateY(22px); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="20" fill="#4e6b52"/>
+        <path d="M13 24c0-5 3-9 7-9s7 4 7 9" stroke="#faf6ec" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="15.5" cy="16.5" r="2.4" fill="#faf6ec"/>
+        <circle cx="24.5" cy="16.5" r="2.4" fill="#faf6ec"/>
+      </svg>
+      Barking with Style
+    </a>
+    <nav aria-label="Primary">
+      <a class="call" href="tel:+447786428940">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
+        07786 428940
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shape" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow-tag">Grimsby, DN32</span>
+      <h1 class="reveal">Only <em>one dog</em> gets the room at a time.</h1>
+      <p class="lede reveal">Barking with Style is a one-to-one grooming salon on Castle Street. No queue of other dogs to react to, no rush, no clippers until your dog is actually ready for them. Any breed, teacup to giant, and a particular soft spot for the nervous, reactive or previously-difficult ones.</p>
+      <div class="actions reveal">
+        <a class="btn" href="tel:+447786428940">Call Becky to book</a>
+        <a class="btn ghost" href="#services">See what's on offer</a>
+      </div>
+      <p class="note reveal" style="margin-top:0.9rem;">Mon–Fri, 9am–5pm · 166 Castle St, Grimsby</p>
+
+      <div class="hero-illustration reveal" aria-hidden="true">
+        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="210" cy="235" rx="150" ry="14" fill="#c7d6bd" opacity="0.5"/>
+          <path d="M120 150c-8-30 6-58 34-70 4-14 18-24 34-24 20 0 36 15 38 34 20 6 34 24 34 46 0 40-34 66-72 66-38 0-62-22-68-52z" fill="#4e6b52"/>
+          <path d="M118 96c-10-8-24-8-30 2-6 10 0 22 12 26" stroke="#4e6b52" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M256 90c10-10 26-10 32 0 6 10 0 24-12 28" stroke="#4e6b52" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M150 218c-4 14-2 26 6 30" stroke="#4e6b52" stroke-width="12" stroke-linecap="round"/>
+          <path d="M186 224c-2 14 2 24 10 28" stroke="#4e6b52" stroke-width="12" stroke-linecap="round"/>
+          <path d="M232 224c2 14 8 22 16 24" stroke="#4e6b52" stroke-width="12" stroke-linecap="round"/>
+          <path d="M262 216c4 12 12 18 20 18" stroke="#4e6b52" stroke-width="12" stroke-linecap="round"/>
+          <path d="M282 150c14 4 26 16 26 28" stroke="#4e6b52" stroke-width="12" stroke-linecap="round" fill="none"/>
+          <circle cx="176" cy="128" r="5.5" fill="#faf6ec"/>
+          <circle cx="222" cy="128" r="5.5" fill="#faf6ec"/>
+          <path d="M188 154c4 6 20 6 24 0" stroke="#faf6ec" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENCE -->
+  <section class="dim">
+    <div class="wrap essence">
+      <div class="essence-copy">
+        <h2 class="reveal">Most salons aren't built for a dog who's already had a bad day.</h2>
+        <p class="reveal">Multiple dryers going, other dogs barking from crates, a queue of strangers walking past the table. For a calm, confident dog that's background noise. For a nervous one, it can undo the whole appointment before the brush even comes out.</p>
+        <p class="reveal">Becky built Barking with Style around the opposite idea: one dog booked in at a time, the full hour, in a quiet room, going at whatever pace that particular dog needs. It's slower to run than a multi-table salon. It's also why dogs who've struggled everywhere else tend to settle here.</p>
+        <div class="fact-grid reveal">
+          <div class="fact"><strong>1:1</strong><span>one dog in the salon per appointment</span></div>
+          <div class="fact"><strong>100%</strong><span>recommend, from 23 reviews</span></div>
+          <div class="fact"><strong>Teacup–Giant</strong><span>every breed and size welcomed</span></div>
+          <div class="fact"><strong>Qualified &amp; insured</strong><span>fully trained groomer</span></div>
+        </div>
+      </div>
+      <div class="essence-visual reveal">
+        <h3>Who this is especially for</h3>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c7d6bd" stroke-width="2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+            Dogs who bark, panic or shut down at a busy groomer's
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c7d6bd" stroke-width="2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+            Rescues still learning that being handled is safe
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c7d6bd" stroke-width="2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+            Giant breeds or tiny breeds that don't fit the "standard" table routine
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c7d6bd" stroke-width="2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+            Owners who've been turned away by another groomer before
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALM LINE CENTERPIECE -->
+  <section class="calmline">
+    <div class="wrap calmline-intro">
+      <h2 class="reveal">Watch what "no rush" actually does.</h2>
+      <p class="reveal">This is what a typical nervous-dog appointment tends to look like, start to finish. Scroll slowly.</p>
+    </div>
+
+    <div class="calmline-stage" id="calmStage">
+      <div class="calmline-pin">
+        <svg class="calmline-art" id="calmArt" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- pulse line -->
+          <path id="pulsePath" d="" stroke="#c1622d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- calm glow behind dog, fades in -->
+          <circle id="calmGlow" cx="300" cy="230" r="90" fill="#4e6b52" opacity="0"/>
+
+          <!-- dog group -->
+          <g id="dogGroup" transform="translate(300,230)">
+            <!-- tail: rotates from tucked (low) to relaxed wag -->
+            <g id="tail" transform="rotate(55)">
+              <path d="M0 0 C 30 0 55 -18 62 -42" stroke="#e4ecda" stroke-width="14" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- body -->
+            <ellipse cx="-10" cy="10" rx="92" ry="58" fill="#e4ecda"/>
+
+            <!-- legs -->
+            <path d="M-60 55c-4 20-4 34 2 40" stroke="#e4ecda" stroke-width="16" stroke-linecap="round"/>
+            <path d="M-20 60c-2 20-2 32 4 38" stroke="#e4ecda" stroke-width="16" stroke-linecap="round"/>
+            <path d="M28 60c2 20 4 32 10 36" stroke="#e4ecda" stroke-width="16" stroke-linecap="round"/>
+            <path d="M62 52c6 18 10 30 16 34" stroke="#e4ecda" stroke-width="16" stroke-linecap="round"/>
+
+            <!-- head group: shifts height (bracing low -> lifted relaxed) -->
+            <g id="headGroup" transform="translate(70,-46)">
+              <!-- ears: rotate from pinned-back to soft/up -->
+              <g id="earBack" transform="rotate(70)"><path d="M0 0c-4 26 6 44 24 48" stroke="#c7d6bd" stroke-width="16" stroke-linecap="round" fill="none"/></g>
+              <g id="earFront" transform="rotate(35)"><path d="M0 0c10 22 26 30 40 26" stroke="#8ba585" stroke-width="16" stroke-linecap="round" fill="none"/></g>
+
+              <circle cx="0" cy="0" r="46" fill="#e4ecda"/>
+              <ellipse cx="34" cy="14" rx="20" ry="14" fill="#e4ecda"/>
+
+              <circle id="eye" cx="10" cy="-6" r="4.6" fill="#20241d"/>
+              <path id="mouth" d="M18 20c6 3 16 3 22 -1" stroke="#20241d" stroke-width="4" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- tension marks near shoulder, fade out as dog calms -->
+            <g id="tensionMarks" stroke="#c1622d" stroke-width="3" stroke-linecap="round" opacity="1">
+              <path d="M-6 -46l8 -14"/>
+              <path d="M6 -50l6 -16"/>
+              <path d="M18 -48l4 -16"/>
+            </g>
+          </g>
+        </svg>
+
+        <div class="calmline-caption">
+          <p id="calmCaption1">A lot of dogs arrive braced, ears back, already on alert.</p>
+          <p id="calmCaption2" style="position:relative;top:-3.2em;">There's no other dog in the room to react to. No queue watching.</p>
+          <p id="calmCaption3" style="position:relative;top:-6.4em;">Becky waits for them, not the clock. The tools stay put until they're ready.</p>
+          <p id="calmCaption4" style="position:relative;top:-9.6em;">Ears soften, tail loosens. That's usually when the actual groom begins.</p>
+        </div>
+
+        <div class="calmline-progress"><div class="calmline-progress-fill" id="calmFill"></div></div>
+        <div class="calmline-labels"><span>Arrival</span><span>Settling in</span><span>At their pace</span><span>Calm &amp; groomed</span></div>
+      </div>
+    </div>
+
+    <!-- static fallback for no-js / reduced motion -->
+    <div class="wrap calmline-static" id="calmStatic">
+      <ol>
+        <li>A lot of dogs arrive braced, ears back, already on alert.</li>
+        <li>There's no other dog in the room to react to. No queue watching.</li>
+        <li>Becky waits for them, not the clock. The tools stay put until they're ready.</li>
+        <li>Ears soften, tail loosens. That's usually when the actual groom begins.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="reveal">What's on offer</h2>
+        <p class="reveal">Every appointment is one-to-one by default, not an upgrade. Prices and slot lengths confirmed by phone since every dog's needs are different.</p>
+      </div>
+      <div class="services-list">
+        <div class="service reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4e6b52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a1 1 0 0 1 1 1 7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7 1 1 0 0 1 1-1z"/><path d="M6.5 12V7.2a2.2 2.2 0 0 1 3.7-1.6"/><path d="M4 20h16"/></svg>
+          </div>
+          <h3>Full Groom</h3>
+          <p>Bath, blow-dry, brush-out, breed-appropriate trim, nail clip and ear clean. The standard full works for coated dogs of any size.</p>
+          <span class="tag">All breeds</span>
+        </div>
+        <div class="service reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#4e6b52"><ellipse cx="7.3" cy="9.2" rx="2" ry="2.6"/><ellipse cx="12" cy="6.4" rx="2" ry="2.6"/><ellipse cx="16.7" cy="9.2" rx="2" ry="2.6"/><path d="M12 11.6c-3.5 0-6.3 2-6.3 4.5 0 1.7 1.3 2.9 3 2.6.9-.2 1.6-.7 2.3-.9.7-.2 1.3-.2 2 0 .7.2 1.4.7 2.3.9 1.7.3 3-.9 3-2.6 0-2.5-2.8-4.5-6.3-4.5z"/></svg>
+          </div>
+          <h3>Puppy's First Groom</h3>
+          <p>Short, gentle and unhurried, built to make the next fifteen years of grooming a non-event rather than a fight.</p>
+          <span class="tag">Confidence building</span>
+        </div>
+        <div class="service reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4e6b52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+          </div>
+          <h3>Nervous &amp; Reactive Sessions</h3>
+          <p>Longer, unrushed slots for dogs who've struggled at other groomers. Breaks built in. No pressure to finish everything in one visit.</p>
+          <span class="tag">Go at their pace</span>
+        </div>
+        <div class="service reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#4e6b52"><circle cx="4" cy="18" r="2"/><circle cx="11.5" cy="14.5" r="3.3"/><circle cx="19" cy="9.5" r="5"/></svg>
+          </div>
+          <h3>Teacup to Giant</h3>
+          <p>Right-sized handling and equipment whether that's a two-kilo Chihuahua or an eight-stone Mastiff. Nobody gets treated as an afterthought.</p>
+          <span class="tag">Any size</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="dim">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="reveal">What people notice</h2>
+      </div>
+      <div class="trust-top reveal">
+        <div class="trust-stat">
+          <strong>100%</strong>
+          <span>of reviewers recommend Barking with Style</span>
+        </div>
+        <div class="trust-stat">
+          <strong>23</strong>
+          <span>reviews on Facebook, zero negative</span>
+        </div>
+      </div>
+      <div class="trust-notes">
+        <div class="trust-note reveal">
+          <p>How much calmer their dog seems here compared to previous groomers comes up again and again.</p>
+          <span>Recurring theme in reviews</span>
+        </div>
+        <div class="trust-note reveal">
+          <p>Owners who'd nearly given up finding anywhere that would take their nervous or reactive dog keep coming back.</p>
+          <span>Recurring theme in reviews</span>
+        </div>
+        <div class="trust-note reveal">
+          <p>The one-to-one setup, with no other dogs in the room, is mentioned specifically and often.</p>
+          <span>Recurring theme in reviews</span>
+        </div>
+      </div>
+      <p class="trust-source reveal">Paraphrased from patterns across public Facebook reviews, not direct quotes.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section>
+    <div class="wrap">
+      <div class="closing reveal">
+        <h2>Ready when your dog is.</h2>
+        <p>Call or message to talk through what your dog needs. There's no such thing as "too difficult to ask about".</p>
+        <div class="actions">
+          <a class="btn" href="tel:+447786428940">Call 07786 428940</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="20" fill="#4e6b52"/>
+            <path d="M13 24c0-5 3-9 7-9s7 4 7 9" stroke="#faf6ec" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle cx="15.5" cy="16.5" r="2.4" fill="#faf6ec"/>
+            <circle cx="24.5" cy="16.5" r="2.4" fill="#faf6ec"/>
+          </svg>
+          Barking with Style
+        </a>
+        <p>A one-to-one dog grooming salon in Grimsby. All breeds, every temperament, one dog at a time.</p>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <address>166 Castle St<br>Grimsby, DN32 7LA</address>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <p>Mon–Fri, 9am–5pm<br><a href="tel:+447786428940">07786 428940</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="mockup-flag">This is a free concept mock-up made for outreach purposes, not Barking with Style's official website.</p>
+      <p>&copy; 2026 concept design</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // header shadow on scroll
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  if (reduceMotion || typeof gsap === 'undefined') {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
+    var stage = document.getElementById('calmStage');
+    if (stage) stage.style.display = 'none';
+    var stat = document.getElementById('calmStatic');
+    if (stat) stat.style.display = 'block';
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+  }
+
+  // generic reveal-on-scroll
+  gsap.utils.toArray('.reveal').forEach(function(el, i){
+    gsap.to(el, {
+      opacity:1,
+      y:0,
+      duration:0.8,
+      ease:'power2.out',
+      scrollTrigger:{
+        trigger: el,
+        start:'top 88%',
+        toggleActions:'play none none reverse'
+      }
+    });
+  });
+
+  // hero shape drift
+  gsap.to('.hero-bg-shape', {
+    y: 60,
+    scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:1 }
+  });
+
+  /* ---------------- Calm Line centerpiece ---------------- */
+
+  function pulsePath(progress, w, x0, y){
+    // progress 0 (tense: fast, jagged, tall) -> 1 (calm: slow, smooth, low)
+    var amp = 34 - 24*progress;      // amplitude shrinks
+    var freq = 22 - 12*progress;     // wavelength grows (fewer, wider beats)
+    var jag = 1 - progress;          // jaggedness fades to smooth sine
+    var pts = [];
+    var steps = 90;
+    for (var i=0;i<=steps;i++){
+      var t = i/steps;
+      var x = x0 + t*w;
+      var phase = t * w / freq;
+      var base = Math.sin(phase*6.283);
+      var spike = jag * (Math.sin(phase*6.283*3.3) * 0.5);
+      var val = (base + spike) * amp;
+      pts.push([x, y - val]);
+    }
+    var d = 'M ' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (var j=1;j<pts.length;j++){
+      d += ' L ' + pts[j][0].toFixed(1) + ' ' + pts[j][1].toFixed(1);
+    }
+    return d;
+  }
+
+  var pulseEl = document.getElementById('pulsePath');
+  var W = 600, X0 = -40, Y = 70;
+
+  function renderPulse(progress){
+    pulseEl.setAttribute('d', pulsePath(progress, W, X0, Y));
+    var hue = gsap.utils.interpolate('#c1622d', '#8ba585', progress);
+    pulseEl.setAttribute('stroke', hue);
+  }
+  renderPulse(0);
+
+  var capIds = ['calmCaption1','calmCaption2','calmCaption3','calmCaption4'];
+
+  var tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:'#calmStage',
+      start:'top top',
+      end:'bottom bottom',
+      scrub:0.6,
+      pin:'.calmline-pin',
+      pinSpacing:false,
+      onUpdate: function(self){
+        renderPulse(self.progress);
+        document.getElementById('calmFill').style.width = (self.progress*100).toFixed(1)+'%';
+      }
+    }
+  });
+
+  // caption crossfade, 4 beats
+  capIds.forEach(function(id, i){
+    var start = i/4, end = (i+1)/4;
+    var mid = start + (end-start)*0.5;
+    tl.to('#'+id, {opacity:1, duration:0.12}, start+0.02)
+      .to('#'+id, {opacity:1, duration:0.14}, mid-0.07)
+      .to('#'+id, {opacity:0, duration:0.12}, end-0.06);
+  }, 0);
+
+  // ears: pinned back -> soft/up
+  tl.to('#earBack', {rotate:12, transformOrigin:'0px 0px', duration:1}, 0);
+  tl.to('#earFront', {rotate:-6, transformOrigin:'0px 0px', duration:1}, 0);
+
+  // head lifts as the dog relaxes and looks up
+  tl.to('#headGroup', {y:-72, duration:1}, 0);
+
+  // tension marks fade
+  tl.to('#tensionMarks', {opacity:0, duration:0.5}, 0.15);
+
+  // calm glow fades in behind dog
+  tl.to('#calmGlow', {opacity:0.16, duration:0.6}, 0.35);
+
+  // mouth relaxes into soft open curve
+  tl.to('#mouth', {attr:{d:'M16 20c8 6 20 6 28 -1'}, duration:0.6}, 0.55);
+
+  // tail: tucked -> gentle wag arc, then a couple of small wags near the end
+  tl.to('#tail', {rotate:-15, transformOrigin:'0px 0px', duration:1}, 0);
+  tl.to('#tail', {rotate:5, duration:0.18, ease:'sine.inOut', yoyo:true, repeat:3}, 0.82);
+
+})();
+</script>
+
+</body>
+</html>
