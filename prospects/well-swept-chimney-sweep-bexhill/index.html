@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Well Swept Chimney Sweep — Bexhill-on-Sea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#231e1a;
+    --paper:#f8f2e7;
+    --paper-dim:#efe4d0;
+    --accent:#c23c1f;
+    --accent-dark:#8e2b14;
+    --brick:#d9a878;
+    --soot:#2b2420;
+    --ember:#ff9152;
+    --line:rgba(35,30,26,0.14);
+
+    --space-1:8px;
+    --space-2:16px;
+    --space-3:24px;
+    --space-4:32px;
+    --space-5:48px;
+    --space-6:64px;
+    --space-7:96px;
+    --space-8:144px;
+
+    --r-sm:8px;
+    --r-md:20px;
+    --r-lg:40px;
+
+    --font-head:'Bricolage Grotesque', Georgia, serif;
+    --font-body:'Karla', -apple-system, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ background:var(--paper); }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{ max-width:100%; }
+
+  h1,h2,h3{
+    font-family:var(--font-head);
+    font-weight:800;
+    line-height:1.05;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  p{ margin:0; }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding-left:var(--space-3);
+    padding-right:var(--space-3);
+  }
+
+  @media (min-width:640px){
+    .wrap{ padding-left:var(--space-5); padding-right:var(--space-5); }
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:var(--space-2) var(--space-3);
+    background:rgba(248,242,231,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .topbar.scrolled{
+    border-bottom-color:var(--line);
+    box-shadow:0 4px 24px rgba(35,30,26,0.06);
+  }
+  .brand{
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .brand svg{ width:22px; height:22px; flex:none; }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fff8f2;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:999px;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .call-btn:hover{ background:var(--accent-dark); transform:translateY(-1px); }
+  .call-btn.ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--line);
+  }
+  .call-btn.ghost:hover{ background:rgba(35,30,26,0.05); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:calc(var(--space-8) + 40px) 0 var(--space-7);
+    position:relative;
+  }
+  .hero .wrap{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-4);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    max-width:16ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-sub{
+    font-size:clamp(1.05rem, 2vw, 1.25rem);
+    max-width:52ch;
+    color:rgba(35,30,26,0.78);
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    align-items:center;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-4);
+    margin-top:var(--space-3);
+    padding-top:var(--space-3);
+    border-top:1px solid var(--line);
+  }
+  .hero-meta div{ min-width:120px; }
+  .hero-meta .num{
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:1.9rem;
+    color:var(--accent);
+    display:block;
+  }
+  .hero-meta .lbl{
+    font-size:0.85rem;
+    color:rgba(35,30,26,0.65);
+  }
+
+  .hero-art{
+    align-self:center;
+    width:min(220px, 60vw);
+  }
+
+  /* ---------- section basics ---------- */
+  section{ position:relative; }
+  .section-pad{ padding:var(--space-7) 0; }
+  .section-head{
+    max-width:44ch;
+    margin-bottom:var(--space-5);
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .section-head p{
+    margin-top:var(--space-2);
+    color:rgba(35,30,26,0.72);
+    font-size:1.05rem;
+  }
+
+  .band{ background:var(--paper-dim); }
+
+  /* ---------- centerpiece ---------- */
+  .centerpiece{
+    background:var(--soot);
+    color:#f3e9dc;
+  }
+  .cp-intro{
+    padding:var(--space-6) 0 var(--space-4);
+    text-align:center;
+  }
+  .cp-intro h2{
+    font-size:clamp(1.7rem, 4vw, 2.4rem);
+    color:#f3e9dc;
+    max-width:24ch;
+    margin:0 auto;
+  }
+  .cp-intro p{
+    margin-top:var(--space-2);
+    color:rgba(243,233,220,0.65);
+    max-width:40ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .cp-pin-outer{
+    height:340vh;
+    position:relative;
+  }
+  .cp-pin-inner{
+    position:relative;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .cp-stage{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:var(--space-6);
+    width:100%;
+    max-width:1000px;
+    padding:0 var(--space-3);
+  }
+  .cp-illustration{
+    width:min(300px, 34vw);
+    flex:none;
+  }
+  .cp-captions{
+    position:relative;
+    min-height:180px;
+    width:min(360px, 42vw);
+  }
+  .cp-caption{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    opacity:0;
+  }
+  .cp-caption .tag{
+    font-family:var(--font-head);
+    font-weight:800;
+    color:var(--ember);
+    font-size:0.95rem;
+    letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+  .cp-caption p{
+    font-size:clamp(1.05rem, 2vw, 1.35rem);
+    line-height:1.4;
+  }
+
+  .cp-no-js-fallback{ display:none; }
+
+  /* ---------- services ---------- */
+  .service-row{
+    display:flex;
+    gap:var(--space-4);
+    align-items:flex-start;
+    padding:var(--space-4) 0;
+    border-top:1px solid var(--line);
+  }
+  .service-row:last-child{ border-bottom:1px solid var(--line); }
+  .service-row .icon{
+    flex:none;
+    width:56px;
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--paper-dim);
+    border-radius:var(--r-md);
+  }
+  .service-row .icon svg{ width:30px; height:30px; }
+  .service-row h3{
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .service-row p{
+    color:rgba(35,30,26,0.7);
+    max-width:56ch;
+  }
+  .service-row.big .icon{ width:72px; height:72px; }
+  .service-row.big .icon svg{ width:38px; height:38px; }
+  .service-row.big h3{ font-size:1.5rem; }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-5);
+    align-items:center;
+  }
+  @media (min-width:800px){
+    .about-grid{ grid-template-columns: 1fr 1.3fr; }
+  }
+  .about-art{
+    display:flex;
+    justify-content:center;
+  }
+  .about-art svg{ width:min(260px, 70vw); }
+  .about-copy h2{ font-size:clamp(1.8rem,4vw,2.4rem); margin-bottom:var(--space-3); }
+  .about-copy p + p{ margin-top:var(--space-2); }
+  .about-copy p{ color:rgba(35,30,26,0.78); }
+
+  /* ---------- trust ---------- */
+  .trust-top{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-5);
+    margin-bottom:var(--space-5);
+  }
+  .trust-stat .big{
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:clamp(2.4rem,6vw,3.6rem);
+    color:var(--accent);
+    display:block;
+    line-height:1;
+  }
+  .trust-stat .cap{
+    color:rgba(35,30,26,0.65);
+    margin-top:4px;
+    font-size:0.95rem;
+  }
+  .trust-note{
+    font-size:0.85rem;
+    color:rgba(35,30,26,0.5);
+    margin-bottom:var(--space-3);
+  }
+  .trust-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:grid;
+    gap:var(--space-2);
+  }
+  .trust-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:1.05rem;
+    color:rgba(35,30,26,0.85);
+  }
+  .trust-list svg{ flex:none; width:20px; height:20px; margin-top:3px; color:var(--accent); }
+
+  /* ---------- closing cta ---------- */
+  .cta-close{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:center;
+  }
+  .cta-close h2{
+    color:var(--paper);
+    font-size:clamp(2rem,5vw,3rem);
+    max-width:18ch;
+    margin:0 auto;
+  }
+  .cta-close p{
+    color:rgba(248,242,231,0.68);
+    max-width:44ch;
+    margin:var(--space-3) auto var(--space-4);
+    font-size:1.1rem;
+  }
+  .cta-close .call-btn{ font-size:1.05rem; padding:16px 30px; }
+  .cta-close .areas{
+    margin-top:var(--space-4);
+    font-size:0.9rem;
+    color:rgba(248,242,231,0.5);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:var(--space-5) 0;
+    background:var(--ink);
+    color:rgba(248,242,231,0.55);
+    font-size:0.9rem;
+    border-top:1px solid rgba(248,242,231,0.12);
+  }
+  footer .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-2);
+  }
+  footer a{ color:rgba(248,242,231,0.8); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="2" width="6" height="7" rx="1" fill="#c23c1f"/><path d="M4 21V14C4 12.3431 5.34315 11 7 11H17C18.6569 11 20 12.3431 20 14V21" stroke="#231e1a" stroke-width="1.6"/><path d="M2 21H22" stroke="#231e1a" stroke-width="1.6" stroke-linecap="round"/></svg>
+    Well Swept
+  </div>
+  <a class="call-btn" href="tel:+447810111732">Call Laura</a>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="reveal" id="h1">Your chimney, swept properly.<br>Your home, left <em>spotless</em>.</h1>
+    <p class="hero-sub reveal" id="hsub">Laura is Bexhill-on-Sea's fully insured chimney sweep. Sweeps, inspections, bird guards and a certificate for the file, and not a smudge of soot left on your carpet.</p>
+    <div class="hero-actions reveal" id="hact">
+      <a class="call-btn" href="tel:+447810111732">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8C8 13.6 10.4 16 13.2 17.4L15.4 15.2C15.7 14.9 16.1 14.8 16.5 14.9C17.7 15.3 19 15.5 20.3 15.5C20.9 15.5 21.3 15.9 21.3 16.5V20.3C21.3 20.9 20.9 21.3 20.3 21.3C10.7 21.3 3 13.6 3 4C3 3.4 3.4 3 4 3H7.8C8.4 3 8.8 3.4 8.8 4C8.8 5.3 9 6.6 9.4 7.8C9.5 8.2 9.4 8.6 9.1 8.9L6.6 10.8Z" fill="currentColor"/></svg>
+        07810 111732
+      </a>
+      <a class="call-btn ghost" href="#services">See what's included</a>
+    </div>
+    <div class="hero-meta reveal" id="hmeta">
+      <div><span class="num">100%</span><span class="lbl">recommend on Facebook</span></div>
+      <div><span class="num">47</span><span class="lbl">reviews and counting</span></div>
+      <div><span class="num">4</span><span class="lbl">towns covered locally</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="centerpiece">
+  <div class="cp-intro wrap">
+    <h2>What actually happens up your flue</h2>
+    <p>Not a quick brush and a wipe of the hands. Here's the process, scroll to follow it through.</p>
+  </div>
+
+  <div class="cp-pin-outer" id="cpPinOuter">
+    <div class="cp-pin-inner">
+      <div class="cp-stage">
+        <div class="cp-illustration">
+          <svg id="flueSvg" viewBox="0 0 400 720" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="chimneyClip">
+                <path d="M165,0 L235,0 L250,50 L250,480 L330,560 L330,700 L70,700 L70,560 L150,480 L150,50 Z"/>
+              </clipPath>
+              <clipPath id="sootWipeClip">
+                <rect id="wipeRect" x="0" y="0" width="400" height="700"/>
+              </clipPath>
+              <radialGradient id="emberGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffb877" stop-opacity="0.95"/>
+                <stop offset="55%" stop-color="#ff8a4c" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#ff8a4c" stop-opacity="0"/>
+              </radialGradient>
+              <pattern id="brickPattern" width="60" height="26" patternUnits="userSpaceOnUse">
+                <rect width="60" height="26" fill="#c98f5c"/>
+                <rect x="0" y="0" width="28" height="12" fill="#d9a878" stroke="#b57a48" stroke-width="1"/>
+                <rect x="30" y="0" width="30" height="12" fill="#d9a878" stroke="#b57a48" stroke-width="1"/>
+                <rect x="-15" y="13" width="30" height="12" fill="#d9a878" stroke="#b57a48" stroke-width="1"/>
+                <rect x="17" y="13" width="30" height="12" fill="#d9a878" stroke="#b57a48" stroke-width="1"/>
+                <rect x="49" y="13" width="26" height="12" fill="#d9a878" stroke="#b57a48" stroke-width="1"/>
+              </pattern>
+              <pattern id="sootPattern" width="46" height="30" patternUnits="userSpaceOnUse">
+                <rect width="46" height="30" fill="#2b2420"/>
+                <ellipse cx="10" cy="8" rx="9" ry="6" fill="#3a2f28" opacity="0.8"/>
+                <ellipse cx="34" cy="20" rx="10" ry="7" fill="#1d1712" opacity="0.7"/>
+                <ellipse cx="22" cy="4" rx="6" ry="4" fill="#463a30" opacity="0.6"/>
+              </pattern>
+            </defs>
+
+            <g clip-path="url(#chimneyClip)">
+              <rect x="0" y="0" width="400" height="720" fill="url(#brickPattern)"/>
+              <g clip-path="url(#sootWipeClip)">
+                <rect x="0" y="0" width="400" height="720" fill="url(#sootPattern)"/>
+              </g>
+            </g>
+
+            <path d="M165,0 L235,0 L250,50 L250,480 L330,560 L330,700 L70,700 L70,560 L150,480 L150,50 Z" fill="none" stroke="var(--ink)" stroke-width="4" stroke="#231e1a"/>
+
+            <circle id="emberGlow" cx="200" cy="640" r="70" fill="url(#emberGrad)" opacity="0"/>
+            <ellipse id="sootPile" cx="205" cy="694" rx="52" ry="0" fill="#241d19"/>
+
+            <g id="fleck1" opacity="0"><circle cx="120" cy="640" r="5" fill="#4a3c32"/></g>
+            <g id="fleck2" opacity="0"><circle cx="290" cy="600" r="4" fill="#4a3c32"/></g>
+            <g id="fleck3" opacity="0"><circle cx="180" cy="420" r="4.5" fill="#4a3c32"/></g>
+            <g id="fleck4" opacity="0"><circle cx="215" cy="260" r="4" fill="#4a3c32"/></g>
+            <g id="fleck5" opacity="0"><circle cx="190" cy="90" r="4.5" fill="#4a3c32"/></g>
+
+            <g id="certBadge" opacity="0" transform="translate(200,340) scale(0.5)">
+              <circle r="34" fill="#f3e9dc"/>
+              <path d="M-14,0 L-4,10 L16,-12" stroke="#c23c1f" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="cp-captions">
+          <div class="cp-caption" id="cap1">
+            <span class="tag">01 — BEFORE</span>
+            <p>Every fire you light leaves soot and tar clinging to the flue walls. Left alone, it builds up for years.</p>
+          </div>
+          <div class="cp-caption" id="cap2">
+            <span class="tag">02 — THE SWEEP</span>
+            <p>Laura works the rods from the fireplace up through the flue, loosening it from the bottom to the top.</p>
+          </div>
+          <div class="cp-caption" id="cap3">
+            <span class="tag">03 — AFTER</span>
+            <p>It's swept down, bagged up, and gone. What's left is a flue that's actually safe to light a fire in again.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>What's included when Laura visits</h2>
+      <p>No upsell menu, just what a chimney actually needs to be safe.</p>
+    </div>
+
+    <div class="service-row big reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2V13" stroke="#c23c1f" stroke-width="2" stroke-linecap="round"/><path d="M7 22C7 17 9 13 12 13C15 13 17 17 17 22" stroke="#231e1a" stroke-width="2" stroke-linecap="round"/><path d="M6 22H18" stroke="#231e1a" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>Full chimney sweep</h3>
+        <p>Rods and brush, top to bottom, clearing soot and tar buildup the traditional way. No shortcuts, no vacuum-only quick jobs.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="14" height="12" rx="2" stroke="#231e1a" stroke-width="2"/><path d="M17 10L21 8V16L17 14" stroke="#c23c1f" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h3>CCTV flue inspection</h3>
+        <p>A camera check so you can actually see the state of your chimney, not just take someone's word for it.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="6" rx="1" stroke="#231e1a" stroke-width="2"/><path d="M5 21V16C5 14.3431 6.34315 13 8 13H16C17.6569 13 19 14.3431 19 16V21" stroke="#c23c1f" stroke-width="2"/><path d="M7 9L5 6M17 9L19 6" stroke="#231e1a" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>Bird's nest removal and guards</h3>
+        <p>Nests cleared safely, and a guard fitted afterwards so it doesn't become a yearly problem.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#231e1a" stroke-width="2"/><path d="M12 8V13L15 15" stroke="#c23c1f" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>Carbon monoxide alarm advice and fitting</h3>
+        <p>A swept chimney should also be a safe one. Alarms fitted or checked as part of the same visit.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#231e1a" stroke-width="2"/><path d="M8 8H16M8 12H16M8 16H12" stroke="#c23c1f" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>A certificate, every time</h3>
+        <p>Proof of sweep for landlords, insurers, or just your own records. No need to chase it afterwards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad band">
+  <div class="wrap about-grid">
+    <div class="about-art reveal">
+      <svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="140" cy="286" rx="120" ry="10" fill="#231e1a" opacity="0.08"/>
+
+        <!-- chimney pot -->
+        <rect x="176" y="60" width="52" height="86" rx="10" fill="#c98f5c"/>
+        <rect x="168" y="48" width="68" height="20" rx="8" fill="#8a5a3f"/>
+
+        <!-- brush tuft, just pulled clear of the pot -->
+        <g stroke="#3a2f28" stroke-width="4" stroke-linecap="round">
+          <path d="M202 46 L186 4"/>
+          <path d="M202 46 L200 0"/>
+          <path d="M202 46 L215 3"/>
+          <path d="M202 46 L228 12"/>
+          <path d="M202 46 L172 16"/>
+        </g>
+        <g stroke="#c23c1f" stroke-width="4" stroke-linecap="round">
+          <path d="M202 46 L193 8"/>
+          <path d="M202 46 L221 20"/>
+        </g>
+
+        <!-- rod connecting hand to pot -->
+        <rect x="150" y="118" width="66" height="9" rx="4.5" fill="#8a5a3f" transform="rotate(-24 150 118)"/>
+
+        <!-- Laura, bust silhouette -->
+        <path d="M40 286 L40 200 C40 165 65 142 104 142 C143 142 168 165 168 200 L168 286 Z" fill="#231e1a"/>
+        <circle cx="104" cy="100" r="38" fill="#231e1a"/>
+        <path d="M66 96 C66 68 82 50 104 50 C126 50 142 66 143 90 C130 78 116 74 104 84 C93 93 80 96 66 96 Z" fill="#c23c1f"/>
+
+        <!-- holding hand -->
+        <circle cx="150" cy="128" r="12" fill="#231e1a"/>
+      </svg>
+    </div>
+    <div class="about-copy reveal">
+      <h2>Not the trade you'd expect</h2>
+      <p>Chimney sweeping is still an overwhelmingly male trade, and Laura trained and qualified in it anyway, now sweeping across Bexhill, Hastings, Hooe and Crowhurst.</p>
+      <p>What comes up again and again from people who've had her round isn't just that the job gets done. It's how she leaves the house: clean, tidy, no mess trailed through, and she'll actually explain what she's found up your flue rather than pack up and go. Sweep it properly, leave no trace, tell you the truth about what's up there.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="trust-top reveal">
+      <div class="trust-stat">
+        <span class="big">100%</span>
+        <span class="cap">recommend rating on Facebook</span>
+      </div>
+      <div class="trust-stat">
+        <span class="big">47</span>
+        <span class="cap">reviews from local customers</span>
+      </div>
+      <div class="trust-stat">
+        <span class="big">✓</span>
+        <span class="cap">Guild of Master Chimney Sweeps member</span>
+      </div>
+    </div>
+    <p class="trust-note reveal">What people notice, in our own words, not lifted from any single review.</p>
+    <ul class="trust-list reveal">
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Consistently described as clean and tidy, leaving nothing behind for you to hoover up.</li>
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Quick and friendly, and happy to explain what she's actually found up there.</li>
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Turns up when she says she will, fully insured with certificates provided on the day.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-close section-pad">
+  <div class="wrap">
+    <h2 class="reveal">Book your sweep before the cold sets in.</h2>
+    <p class="reveal">Autumn's the busy season for a reason. Get it done now and light your first fire without worrying about it.</p>
+    <a class="call-btn reveal" href="tel:+447810111732">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8C8 13.6 10.4 16 13.2 17.4L15.4 15.2C15.7 14.9 16.1 14.8 16.5 14.9C17.7 15.3 19 15.5 20.3 15.5C20.9 15.5 21.3 15.9 21.3 16.5V20.3C21.3 20.9 20.9 21.3 20.3 21.3C10.7 21.3 3 13.6 3 4C3 3.4 3.4 3 4 3H7.8C8.4 3 8.8 3.4 8.8 4C8.8 5.3 9 6.6 9.4 7.8C9.5 8.2 9.4 8.6 9.1 8.9L6.6 10.8Z" fill="currentColor"/></svg>
+      Call 07810 111732
+    </a>
+    <p class="areas">Covering Bexhill-on-Sea, Hastings, Hooe, Crowhurst and the villages around them.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>Well Swept Chimney Sweep</strong><br>
+      Based in Bexhill-on-Sea, East Sussex.
+    </div>
+    <div>
+      <a href="tel:+447810111732">07810 111732</a><br>
+      <a href="mailto:WellSwept@outlook.com">WellSwept@outlook.com</a>
+    </div>
+    <div>
+      Guild of Master Chimney Sweeps member.<br>
+      Fully insured.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var topbar = document.getElementById('topbar');
+  window.addEventListener('scroll', function(){
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive:true });
+
+  if (reduceMotion) {
+    document.querySelectorAll('.reveal').forEach(function(el){
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    });
+    // no scroll-driven pin, so the spacer only needs to be as tall as the stage itself
+    document.getElementById('cpPinOuter').style.height = 'auto';
+    // show the finished, clean state without animation
+    var wipeRect = document.getElementById('wipeRect');
+    if (wipeRect) wipeRect.setAttribute('height', 0);
+    var glow = document.getElementById('emberGlow');
+    if (glow) glow.setAttribute('opacity', 1);
+    var cert = document.getElementById('certBadge');
+    if (cert) cert.setAttribute('opacity', 1);
+    var cap3 = document.getElementById('cap3');
+    if (cap3) cap3.style.opacity = 1;
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set(['#h1','#hsub','#hact','#hmeta'], { opacity:0, y:24 });
+  gsap.timeline({ delay:0.1 })
+    .to('#h1', { opacity:1, y:0, duration:0.7, ease:'power3.out' })
+    .to('#hsub', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.4')
+    .to('#hact', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.35')
+    .to('#hmeta', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.3');
+
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    if (el.id === 'h1' || el.id === 'hsub' || el.id === 'hact' || el.id === 'hmeta') return;
+    gsap.fromTo(el, { opacity:0, y:24 }, {
+      opacity:1, y:0, duration:0.8, ease:'power3.out',
+      scrollTrigger:{ trigger:el, start:'top 85%' }
+    });
+  });
+
+  gsap.utils.toArray('.service-row').forEach(function(row, i){
+    gsap.fromTo(row, { opacity:0, y:20 }, {
+      opacity:1, y:0, duration:0.6, ease:'power2.out',
+      scrollTrigger:{ trigger:row, start:'top 88%' }
+    });
+  });
+
+  // ---- centerpiece: The Clean Flue ----
+  function buildCenterpiece(pinEnabled){
+    var tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#cpPinOuter',
+        start:'top top',
+        end:'bottom bottom',
+        scrub:0.6,
+        pin: pinEnabled ? '.cp-pin-inner' : false,
+        pinSpacing:false
+      }
+    });
+
+    tl.to('#wipeRect', { attr:{ height:700 }, duration:0 }, 0);
+
+    tl.to('#cap1', { opacity:1, duration:0.06 }, 0.0)
+      .to('#cap1', { opacity:0, duration:0.06 }, 0.28)
+      .to('#cap2', { opacity:1, duration:0.06 }, 0.32)
+      .to('#cap2', { opacity:0, duration:0.06 }, 0.62)
+      .to('#cap3', { opacity:1, duration:0.06 }, 0.66);
+
+    tl.to('#wipeRect', { attr:{ height:0 }, duration:1, ease:'none' }, 0);
+
+    tl.to('#sootPile', { attr:{ ry:26 }, duration:0.55, ease:'power1.out' }, 0.05)
+      .to('#sootPile', { attr:{ ry:0 }, duration:0.2, ease:'power1.in' }, 0.78);
+
+    ['#fleck1','#fleck2','#fleck3','#fleck4','#fleck5'].forEach(function(id, i){
+      var at = 0.08 + i * 0.18;
+      tl.to(id, { opacity:1, duration:0.02 }, Math.max(0, at - 0.05))
+        .to(id, { opacity:0, duration:0.05 }, at);
+    });
+
+    tl.to('#emberGlow', { opacity:1, duration:0.2 }, 0.8);
+    tl.to('#certBadge', { opacity:1, scale:1, duration:0.15, ease:'back.out(2)' }, 0.86);
+
+    return tl;
+  }
+
+  var mm = gsap.matchMedia();
+  mm.add('(min-width: 760px)', function(){
+    buildCenterpiece(true);
+  });
+  mm.add('(max-width: 759px)', function(){
+    document.getElementById('cpPinOuter').style.height = 'auto';
+    document.querySelector('.cp-pin-inner').style.position = 'relative';
+    document.querySelector('.cp-pin-inner').style.height = '80vh';
+    buildCenterpiece(false);
+  });
+
+})();
+</script>
+</body>
+</html>
