@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair, There &amp; Everywhere &middot; Haddington (concept mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a2119;
+    --paper:#f8f1e6;
+    --paper-dim:#efe1cd;
+    --accent:#7c2c46;
+    --accent-dark:#591f33;
+    --accent-soft:#ecd3da;
+    --wood:#a9704a;
+    --chair:#c98a97;
+    --glow:#ffcf8a;
+    --line:rgba(42,33,25,0.14);
+
+    --space-1:8px;
+    --space-2:16px;
+    --space-3:24px;
+    --space-4:32px;
+    --space-5:48px;
+    --space-6:72px;
+    --space-7:104px;
+    --space-8:160px;
+
+    --r-sm:10px;
+    --r-md:24px;
+    --r-lg:48px;
+
+    --font-head:'Frank Ruhl Libre', Georgia, serif;
+    --font-body:'Manrope', -apple-system, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ background:var(--paper); }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{ max-width:100%; }
+
+  h1,h2,h3{
+    font-family:var(--font-head);
+    font-weight:700;
+    line-height:1.08;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  p{ margin:0; }
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding-left:var(--space-3);
+    padding-right:var(--space-3);
+  }
+
+  @media (min-width:640px){
+    .wrap{ padding-left:var(--space-5); padding-right:var(--space-5); }
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:var(--space-2) var(--space-3);
+    background:rgba(248,241,230,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .topbar.scrolled{
+    border-bottom-color:var(--line);
+    box-shadow:0 4px 24px rgba(42,33,25,0.06);
+  }
+  .brand{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .brand svg{ width:22px; height:22px; flex:none; }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fbeff2;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:999px;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .call-btn:hover{ background:var(--accent-dark); transform:translateY(-1px); }
+  .call-btn.ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--line);
+  }
+  .call-btn.ghost:hover{ background:rgba(42,33,25,0.05); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:calc(var(--space-8) + 24px) 0 var(--space-7);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-motif{
+    position:absolute;
+    right:-60px;
+    top:40px;
+    width:420px;
+    opacity:0.14;
+    pointer-events:none;
+  }
+  @media (max-width:900px){ .hero-motif{ display:none; } }
+  .hero .wrap{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-4);
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5.6vw, 4.2rem);
+    max-width:17ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-sub{
+    font-size:clamp(1.05rem, 2vw, 1.25rem);
+    max-width:54ch;
+    color:rgba(42,33,25,0.78);
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    align-items:center;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-4);
+    margin-top:var(--space-3);
+    padding-top:var(--space-3);
+    border-top:1px solid var(--line);
+  }
+  .hero-meta div{ min-width:130px; }
+  .hero-meta .num{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--accent);
+    display:block;
+  }
+  .hero-meta .lbl{
+    font-size:0.85rem;
+    color:rgba(42,33,25,0.65);
+  }
+
+  /* ---------- section basics ---------- */
+  section{ position:relative; }
+  .section-pad{ padding:var(--space-7) 0; }
+  .section-head{
+    max-width:46ch;
+    margin-bottom:var(--space-5);
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .section-head p{
+    margin-top:var(--space-2);
+    color:rgba(42,33,25,0.72);
+    font-size:1.05rem;
+  }
+
+  .band{ background:var(--paper-dim); }
+
+  /* ---------- centerpiece ---------- */
+  .centerpiece{
+    background:var(--ink);
+    color:#f4e9dd;
+  }
+  .cp-intro{
+    padding:var(--space-6) 0 var(--space-4);
+    text-align:center;
+  }
+  .cp-intro h2{
+    font-size:clamp(1.7rem, 4vw, 2.4rem);
+    color:#f4e9dd;
+    max-width:22ch;
+    margin:0 auto;
+  }
+  .cp-intro p{
+    margin-top:var(--space-2);
+    color:rgba(244,233,221,0.65);
+    max-width:42ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .cp-pin-outer{
+    height:380vh;
+    position:relative;
+  }
+  .cp-pin-inner{
+    position:relative;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .cp-stage{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:var(--space-6);
+    width:100%;
+    max-width:1080px;
+    padding:0 var(--space-3);
+  }
+  .cp-illustration{
+    width:min(440px, 52vw);
+    flex:none;
+  }
+  .cp-captions{
+    position:relative;
+    min-height:170px;
+    width:min(330px, 40vw);
+  }
+  .cp-caption{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    opacity:0;
+  }
+  .cp-caption .tag{
+    font-family:var(--font-head);
+    font-weight:700;
+    color:var(--glow);
+    font-size:0.92rem;
+    letter-spacing:0.04em;
+    margin-bottom:10px;
+  }
+  .cp-caption p{
+    font-size:clamp(1.02rem, 2vw, 1.3rem);
+    line-height:1.45;
+  }
+
+  @media (max-width:759px){
+    .cp-pin-inner{ height:auto; padding:var(--space-4) 0; overflow:visible; }
+    .cp-stage{ flex-direction:column; gap:var(--space-3); }
+    .cp-illustration{ width:min(380px, 84vw); }
+    .cp-captions{ width:min(380px, 84vw); text-align:center; min-height:130px; }
+  }
+
+  /* ---------- services ---------- */
+  .service-row{
+    display:flex;
+    gap:var(--space-4);
+    align-items:flex-start;
+    padding:var(--space-4) 0;
+    border-top:1px solid var(--line);
+  }
+  .service-row:last-child{ border-bottom:1px solid var(--line); }
+  .service-row .icon{
+    flex:none;
+    width:56px;
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--paper-dim);
+    border-radius:var(--r-md);
+  }
+  .service-row .icon svg{ width:30px; height:30px; }
+  .service-row h3{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .service-row p{
+    color:rgba(42,33,25,0.7);
+    max-width:58ch;
+  }
+  .service-row.big .icon{ width:72px; height:72px; background:var(--accent-soft); }
+  .service-row.big .icon svg{ width:38px; height:38px; }
+  .service-row.big h3{ font-size:1.5rem; }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-5);
+    align-items:center;
+  }
+  @media (min-width:800px){
+    .about-grid{ grid-template-columns: 1fr 1.3fr; }
+  }
+  .about-art{ display:flex; justify-content:center; }
+  .about-art svg{ width:min(260px, 70vw); }
+  .about-copy h2{ font-size:clamp(1.8rem,4vw,2.4rem); margin-bottom:var(--space-3); }
+  .about-copy p + p{ margin-top:var(--space-2); }
+  .about-copy p{ color:rgba(42,33,25,0.78); }
+
+  /* ---------- trust ---------- */
+  .trust-top{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-5);
+    margin-bottom:var(--space-5);
+  }
+  .trust-stat .big{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(2.4rem,6vw,3.6rem);
+    color:var(--accent);
+    display:block;
+    line-height:1;
+  }
+  .trust-stat .cap{
+    color:rgba(42,33,25,0.65);
+    margin-top:4px;
+    font-size:0.95rem;
+  }
+  .trust-note{
+    font-size:0.85rem;
+    color:rgba(42,33,25,0.5);
+    margin-bottom:var(--space-3);
+  }
+  .trust-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:grid;
+    gap:var(--space-2);
+  }
+  .trust-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:1.05rem;
+    color:rgba(42,33,25,0.85);
+  }
+  .trust-list svg{ flex:none; width:20px; height:20px; margin-top:3px; color:var(--accent); }
+
+  /* ---------- closing cta ---------- */
+  .cta-close{
+    background:var(--accent-dark);
+    color:#fbeff2;
+    text-align:center;
+  }
+  .cta-close h2{
+    color:#fbeff2;
+    font-size:clamp(2rem,5vw,3rem);
+    max-width:20ch;
+    margin:0 auto;
+  }
+  .cta-close p{
+    color:rgba(251,239,242,0.72);
+    max-width:46ch;
+    margin:var(--space-3) auto var(--space-4);
+    font-size:1.1rem;
+  }
+  .cta-close .call-btn{ font-size:1.05rem; padding:16px 30px; background:var(--paper); color:var(--accent-dark); }
+  .cta-close .call-btn:hover{ background:#fff; }
+  .cta-close .areas{
+    margin-top:var(--space-4);
+    font-size:0.9rem;
+    color:rgba(251,239,242,0.55);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:var(--space-5) 0;
+    background:var(--ink);
+    color:rgba(244,233,221,0.55);
+    font-size:0.9rem;
+    border-top:1px solid rgba(244,233,221,0.12);
+  }
+  footer .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-2);
+  }
+  footer a{ color:rgba(244,233,221,0.85); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+  .mockup-flag{
+    margin-top:var(--space-3);
+    font-size:0.78rem;
+    color:rgba(244,233,221,0.4);
+    max-width:70ch;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="9" r="4.5" fill="#7c2c46"/><path d="M4 21C4 16.8 7.6 13.5 12 13.5C16.4 13.5 20 16.8 20 21" stroke="#2a2119" stroke-width="1.6"/></svg>
+    Hair, There &amp; Everywhere
+  </div>
+  <a class="call-btn" href="tel:+447790662450">Call Michele</a>
+</div>
+
+<header class="hero">
+  <svg class="hero-motif" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 30C90 60 20 110 70 140C120 170 50 220 100 260" stroke="#7c2c46" stroke-width="10" stroke-linecap="round"/>
+    <path d="M90 10C140 40 70 90 120 120C170 150 100 200 150 240" stroke="#2a2119" stroke-width="10" stroke-linecap="round"/>
+    <path d="M150 0C200 30 130 80 180 110C230 140 160 190 210 230" stroke="#7c2c46" stroke-width="10" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <h1 class="reveal" id="h1">You don't have to go anywhere<br>for <em>this</em>.</h1>
+    <p class="hero-sub reveal" id="hsub">Michele has spent twenty years behind the chair, and the last thirteen bringing the whole kit, cape, mirror, colour and all, straight to people's own homes across Haddington and East Lothian.</p>
+    <div class="hero-actions reveal" id="hact">
+      <a class="call-btn" href="tel:+447790662450">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8C8 13.6 10.4 16 13.2 17.4L15.4 15.2C15.7 14.9 16.1 14.8 16.5 14.9C17.7 15.3 19 15.5 20.3 15.5C20.9 15.5 21.3 15.9 21.3 16.5V20.3C21.3 20.9 20.9 21.3 20.3 21.3C10.7 21.3 3 13.6 3 4C3 3.4 3.4 3 4 3H7.8C8.4 3 8.8 3.4 8.8 4C8.8 5.3 9 6.6 9.4 7.8C9.5 8.2 9.4 8.6 9.1 8.9L6.6 10.8Z" fill="currentColor"/></svg>
+        07790 662450
+      </a>
+      <a class="call-btn ghost" href="#centerpiece">See how a visit works</a>
+    </div>
+    <div class="hero-meta reveal" id="hmeta">
+      <div><span class="num">100%</span><span class="lbl">recommend on Facebook</span></div>
+      <div><span class="num">25</span><span class="lbl">reviews and counting</span></div>
+      <div><span class="num">13</span><span class="lbl">years bringing it to people's doors</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="centerpiece" id="centerpiece">
+  <div class="cp-intro wrap">
+    <h2>The whole salon, in one bag</h2>
+    <p>Not a quick trim on the sofa. Here's what actually turns up, scroll to watch it unpack.</p>
+  </div>
+
+  <div class="cp-pin-outer" id="cpPinOuter">
+    <div class="cp-pin-inner">
+      <div class="cp-stage">
+        <div class="cp-illustration">
+          <svg id="roomSvg" viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffcf8a" stop-opacity="0.85"/>
+                <stop offset="60%" stop-color="#ffcf8a" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#ffcf8a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- room -->
+            <rect x="0" y="0" width="520" height="330" fill="#3a2e24"/>
+            <rect x="0" y="330" width="520" height="50" fill="#241b15"/>
+            <rect x="30" y="40" width="110" height="100" rx="6" fill="#4a3b2e" stroke="rgba(244,233,221,0.25)" stroke-width="4"/>
+            <line x1="85" y1="40" x2="85" y2="140" stroke="rgba(244,233,221,0.25)" stroke-width="4"/>
+            <line x1="30" y1="90" x2="140" y2="90" stroke="rgba(244,233,221,0.25)" stroke-width="4"/>
+            <circle id="windowGlow" cx="85" cy="90" r="120" fill="url(#warmGlow)" opacity="0"/>
+
+            <!-- side table -->
+            <ellipse cx="392" cy="283" rx="46" ry="10" fill="#2c221a"/>
+            <rect x="386" y="255" width="12" height="30" fill="#7a5236"/>
+            <ellipse cx="392" cy="255" rx="46" ry="11" fill="#a9704a"/>
+
+            <!-- chair -->
+            <path d="M235 340 L235 190 C235 160 260 145 300 145 C340 145 365 160 365 190 L365 340 Z" fill="#c98a97"/>
+            <path d="M225 340 L225 250 C225 235 233 225 250 225 L350 225 C367 225 375 235 375 250 L375 340 Z" fill="#b9707f"/>
+            <rect x="212" y="330" width="16" height="40" rx="4" fill="#7a5236"/>
+            <rect x="372" y="330" width="16" height="40" rx="4" fill="#7a5236"/>
+
+            <!-- Michele's client, faceless silhouette (lit warm against the dark room) -->
+            <path d="M258 336 L258 268 C258 244 276 230 300 230 C324 230 342 244 342 268 L342 336 Z" fill="#e3c9a8"/>
+            <circle cx="300" cy="205" r="34" fill="#e3c9a8"/>
+
+            <!-- hair: flat / before state -->
+            <g id="hairFlat">
+              <path d="M268 206C266 182 280 166 300 166C320 166 333 183 331 206C322 198 312 196 300 200C289 196 278 198 268 206Z" fill="#77685a"/>
+            </g>
+
+            <!-- hair: styled / after state -->
+            <g id="hairStyled" opacity="0">
+              <path d="M258 210C252 176 272 150 300 150C329 150 350 177 343 212C336 196 326 188 314 196C304 202 296 202 286 196C274 188 265 196 258 210Z" fill="#a9704a"/>
+              <path d="M262 200C270 178 285 166 300 166C300 166 296 190 300 206" stroke="#e58bab" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- kit bag -->
+            <g id="kitBag">
+              <ellipse cx="95" cy="345" rx="58" ry="9" fill="#241b15"/>
+              <rect x="50" y="300" width="90" height="46" rx="14" fill="#591f33"/>
+              <path id="bagFlap" d="M50 306 C50 292 60 284 95 284 C130 284 140 292 140 306 L140 316 L50 316 Z" fill="#7c2c46" style="transform-origin:95px 306px;"/>
+              <path d="M78 300 L78 288 C78 280 84 276 95 276 C106 276 112 280 112 288 L112 300" stroke="#3a1522" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- cape, final state: draped over the chair back -->
+            <g id="cape">
+              <path d="M232 232 C232 200 260 182 300 182 C340 182 368 200 368 232 L368 260 C340 246 260 246 232 260 Z" fill="#ecd3da"/>
+              <path d="M232 232 C260 220 340 220 368 232" stroke="#7c2c46" stroke-width="3" fill="none" opacity="0.5"/>
+            </g>
+
+            <!-- mirror, final: standing on the table -->
+            <g id="mirror">
+              <rect x="380" y="238" width="6" height="18" fill="#7a5236"/>
+              <ellipse cx="383" cy="222" rx="20" ry="24" fill="#d9cfc2" stroke="#7a5236" stroke-width="4"/>
+              <ellipse cx="383" cy="222" rx="14" ry="18" fill="#f4e9dd"/>
+            </g>
+
+            <!-- scissors, final: resting near the mirror -->
+            <g id="scissors">
+              <circle cx="358" cy="248" r="5" fill="none" stroke="#2a2119" stroke-width="3"/>
+              <circle cx="366" cy="256" r="5" fill="none" stroke="#2a2119" stroke-width="3"/>
+              <path d="M358 248L390 232M366 256L390 236" stroke="#7c2c46" stroke-width="3" stroke-linecap="round"/>
+            </g>
+
+            <!-- comb, final: near the mirror base -->
+            <g id="comb">
+              <rect x="405" y="246" width="34" height="8" rx="2" fill="#2a2119"/>
+              <g stroke="#2a2119" stroke-width="2">
+                <line x1="408" y1="254" x2="408" y2="264"/>
+                <line x1="414" y1="254" x2="414" y2="264"/>
+                <line x1="420" y1="254" x2="420" y2="264"/>
+                <line x1="426" y1="254" x2="426" y2="264"/>
+                <line x1="432" y1="254" x2="432" y2="264"/>
+              </g>
+            </g>
+
+            <!-- spray bottle, final: beside the mirror -->
+            <g id="sprayBottle">
+              <rect x="352" y="212" width="16" height="26" rx="3" fill="#7c2c46"/>
+              <rect x="356" y="200" width="8" height="14" rx="2" fill="#591f33"/>
+              <rect x="362" y="196" width="14" height="5" rx="2" fill="#2a2119"/>
+            </g>
+
+            <!-- teacup, final: on the table edge, with steam -->
+            <g id="teacup">
+              <ellipse cx="420" cy="272" rx="16" ry="5" fill="#2c221a" opacity="0.3"/>
+              <path d="M406 262 C406 272 412 278 420 278 C428 278 434 272 434 262 Z" fill="#f4e9dd"/>
+              <path d="M434 264 C442 264 442 274 434 274" stroke="#f4e9dd" stroke-width="3" fill="none"/>
+            </g>
+            <path id="steam1" d="M414 258 C410 250 418 246 414 238" stroke="#f4e9dd" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0" stroke-dasharray="26" stroke-dashoffset="26"/>
+            <path id="steam2" d="M424 258 C420 249 428 245 424 236" stroke="#f4e9dd" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0" stroke-dasharray="26" stroke-dashoffset="26"/>
+
+            <!-- the feeling: a small warm mark once everything is in place -->
+            <g id="heartBadge" opacity="0" style="transform-origin:300px 120px;">
+              <circle cx="300" cy="120" r="20" fill="#f4e9dd"/>
+              <path d="M300 128C292 122 286 116 286 109C286 104 290 100 295 100C297 100 300 102 300 105C300 102 303 100 305 100C310 100 314 104 314 109C314 116 308 122 300 128Z" fill="#7c2c46"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="cp-captions">
+          <div class="cp-caption" id="cap1">
+            <span class="tag">01 &middot; BEFORE</span>
+            <p>Some people can't easily get to a salon chair. Mobility, distance, or just no spare afternoon.</p>
+          </div>
+          <div class="cp-caption" id="cap2">
+            <span class="tag">02 &middot; THE VISIT</span>
+            <p>So the whole kit comes to them instead. Cape, mirror, scissors, colour, the kettle goes on.</p>
+          </div>
+          <div class="cp-caption" id="cap3">
+            <span class="tag">03 &middot; THE CUT</span>
+            <p>Same care, same result you'd get in a salon, just in your own front room.</p>
+          </div>
+          <div class="cp-caption" id="cap4">
+            <span class="tag">04 &middot; AFTER</span>
+            <p>Thirteen years in, it's still the appointment people say they look forward to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>What Michele brings with her</h2>
+      <p>No shop to visit, no upsell menu, just what a proper appointment needs.</p>
+    </div>
+
+    <div class="service-row big reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="2.4" stroke="#7c2c46" stroke-width="2"/><circle cx="7" cy="17" r="2.4" stroke="#7c2c46" stroke-width="2"/><path d="M9.2 8.6L20 20M9.2 15.4L20 4" stroke="#2a2119" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>Cut &amp; style</h3>
+        <p>Ladies' and gents' cuts, wash and blow-dry, done at your kitchen table or bathroom sink. No trip, no waiting room.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="9" rx="2" fill="#7c2c46"/><path d="M12 12V21M8 21H16" stroke="#2a2119" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>Colour</h3>
+        <p>Full colour, root touch-ups, or whatever you've had done before, mixed and applied on the day.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="9" rx="3" stroke="#2a2119" stroke-width="2"/><path d="M9 9V7C9 5.3 10.3 4 12 4C13.7 4 15 5.3 15 7V9" stroke="#7c2c46" stroke-width="2"/></svg>
+      </div>
+      <div>
+        <h3>The full kit, at your door</h3>
+        <p>Cape, mirror, trolley of products, everything a salon chair has, just fitted into a bag and brought to you.</p>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 21C4 16.8 7.6 13.5 12 13.5C16.4 13.5 20 16.8 20 21" stroke="#2a2119" stroke-width="2"/><circle cx="12" cy="8" r="4.5" fill="#7c2c46"/></svg>
+      </div>
+      <div>
+        <h3>Built around you</h3>
+        <p>For anyone who finds getting out difficult, elderly parents, a rural address with no easy bus, or just a week with no spare hour to spend on the road.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad band">
+  <div class="wrap about-grid">
+    <div class="about-art reveal">
+      <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="130" cy="286" rx="110" ry="10" fill="#2a2119" opacity="0.08"/>
+        <path d="M40 286 L40 210 C40 175 62 150 100 150 C138 150 160 175 160 210 L160 286 Z" fill="#2a2119"/>
+        <circle cx="100" cy="112" r="36" fill="#2a2119"/>
+        <path d="M66 108C62 76 78 58 100 58C122 58 140 78 136 110C126 98 114 94 100 100C87 94 76 98 66 108Z" fill="#7c2c46"/>
+        <rect x="150" y="150" width="10" height="46" rx="5" fill="#a9704a" transform="rotate(18 150 150)"/>
+        <circle cx="176" cy="188" r="12" fill="#2a2119"/>
+      </svg>
+    </div>
+    <div class="about-copy reveal">
+      <h2>Why she stopped waiting for people to come to her</h2>
+      <p>After years working from behind a salon chair, Michele found the better fit was bringing the whole thing to people who struggled to get to her instead, whether that's a mobility issue, a rural East Lothian address with no easy way in, or simply no spare afternoon to give up to travel and waiting.</p>
+      <p>Thirteen years later it's still door to door, and it costs less than booking the same appointment in a shop. Twenty years of hairdressing altogether means the cut and colour hold up to the same standard, it's just the address that's different.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="trust-top reveal">
+      <div class="trust-stat">
+        <span class="big">100%</span>
+        <span class="cap">recommend rating on Facebook</span>
+      </div>
+      <div class="trust-stat">
+        <span class="big">25</span>
+        <span class="cap">reviews from local customers</span>
+      </div>
+      <div class="trust-stat">
+        <span class="big">20</span>
+        <span class="cap">years of hairdressing experience</span>
+      </div>
+    </div>
+    <p class="trust-note reveal">What people notice, in our own words, not lifted from any single review.</p>
+    <ul class="trust-list reveal">
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The cut and colour come out the same as a salon chair would give you, people don't describe it as a compromise.</li>
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Visits get talked about less like an appointment and more like a catch-up with someone people are glad to see.</li>
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Reliable and straightforward, she turns up when she says she will and knows what she's doing.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-close section-pad">
+  <div class="wrap">
+    <h2 class="reveal">Skip the drive, skip the waiting room.</h2>
+    <p class="reveal">Start with a phone call and find a time that suits your own front room, not a salon diary.</p>
+    <a class="call-btn reveal" href="tel:+447790662450">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8C8 13.6 10.4 16 13.2 17.4L15.4 15.2C15.7 14.9 16.1 14.8 16.5 14.9C17.7 15.3 19 15.5 20.3 15.5C20.9 15.5 21.3 15.9 21.3 16.5V20.3C21.3 20.9 20.9 21.3 20.3 21.3C10.7 21.3 3 13.6 3 4C3 3.4 3.4 3 4 3H7.8C8.4 3 8.8 3.4 8.8 4C8.8 5.3 9 6.6 9.4 7.8C9.5 8.2 9.4 8.6 9.1 8.9L6.6 10.8Z" fill="currentColor"/></svg>
+      Call 07790 662450
+    </a>
+    <p class="areas">Covering Haddington and the villages around it, East Lothian.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>Hair, There &amp; Everywhere</strong><br>
+      Mobile hairdresser based in Haddington, East Lothian.
+    </div>
+    <div>
+      <a href="tel:+447790662450">07790 662450</a><br>
+      <a href="mailto:michelehunter@hotmail.com">michelehunter@hotmail.com</a>
+    </div>
+    <div>
+      20 years hairdressing.<br>
+      13 years mobile.
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="mockup-flag">This is a free concept mock-up made for outreach purposes, not Hair, There &amp; Everywhere's official website.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var gsapFailedToLoad = (typeof window.gsap === 'undefined');
+
+  var topbar = document.getElementById('topbar');
+  window.addEventListener('scroll', function(){
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive:true });
+
+  if (reduceMotion || gsapFailedToLoad) {
+    document.querySelectorAll('.reveal').forEach(function(el){
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    });
+    document.getElementById('cpPinOuter').style.height = 'auto';
+    var hf = document.getElementById('hairFlat'); if (hf) hf.style.opacity = 0;
+    var hs = document.getElementById('hairStyled'); if (hs) hs.style.opacity = 1;
+    var wg = document.getElementById('windowGlow'); if (wg) wg.setAttribute('opacity', 0.9);
+    var s1 = document.getElementById('steam1'); if (s1){ s1.style.opacity = 1; s1.setAttribute('stroke-dashoffset', 0); }
+    var s2 = document.getElementById('steam2'); if (s2){ s2.style.opacity = 1; s2.setAttribute('stroke-dashoffset', 0); }
+    var hb = document.getElementById('heartBadge'); if (hb) hb.style.opacity = 1;
+    var cap4 = document.getElementById('cap4'); if (cap4) cap4.style.opacity = 1;
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set(['#h1','#hsub','#hact','#hmeta'], { opacity:0, y:24 });
+  gsap.timeline({ delay:0.1 })
+    .to('#h1', { opacity:1, y:0, duration:0.7, ease:'power3.out' })
+    .to('#hsub', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.4')
+    .to('#hact', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.35')
+    .to('#hmeta', { opacity:1, y:0, duration:0.6, ease:'power3.out' }, '-=0.3');
+
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    if (el.id === 'h1' || el.id === 'hsub' || el.id === 'hact' || el.id === 'hmeta') return;
+    gsap.fromTo(el, { opacity:0, y:24 }, {
+      opacity:1, y:0, duration:0.8, ease:'power3.out',
+      scrollTrigger:{ trigger:el, start:'top 85%' }
+    });
+  });
+
+  gsap.utils.toArray('.service-row').forEach(function(row){
+    gsap.fromTo(row, { opacity:0, y:20 }, {
+      opacity:1, y:0, duration:0.6, ease:'power2.out',
+      scrollTrigger:{ trigger:row, start:'top 88%' }
+    });
+  });
+
+  // ---- centerpiece: The whole salon, in one bag ----
+  // Each prop is authored in the SVG at its FINAL resting place, so the
+  // page still looks correct with no JS. On load (motion allowed) every
+  // prop is displaced back toward the kit bag; the scroll timeline then
+  // animates it home, in sequence, as if it were being unpacked.
+  function packState(id, dx, dy, rotate, scale){
+    gsap.set(id, { x:dx, y:dy, rotate:rotate, scale:scale, opacity:0, transformOrigin:'50% 50%' });
+  }
+
+  function buildCenterpiece(pinEnabled){
+    packState('#bagFlap', 0, 0, 46, 1);
+    gsap.set('#bagFlap', { opacity:1 });
+    packState('#cape', -210, 95, -18, 0.35);
+    packState('#mirror', -300, 60, -35, 0.4);
+    packState('#scissors', -270, 70, -70, 0.45);
+    packState('#comb', -320, 68, 50, 0.45);
+    packState('#sprayBottle', -300, 90, -25, 0.4);
+    packState('#teacup', -335, 55, 0, 0.3);
+    gsap.set(['#steam1','#steam2'], { opacity:0 });
+    gsap.set('#windowGlow', { opacity:0 });
+    gsap.set('#hairStyled', { opacity:0, scale:0.92, transformOrigin:'300px 190px' });
+    gsap.set('#heartBadge', { opacity:0, scale:0.4 });
+
+    var tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#cpPinOuter',
+        start:'top top',
+        end:'bottom bottom',
+        scrub:0.6,
+        pin: pinEnabled ? '.cp-pin-inner' : false,
+        pinSpacing:false
+      }
+    });
+
+    tl.to('#bagFlap', { rotate:-52, duration:0.06, ease:'power1.out' }, 0.0);
+
+    tl.to('#cape', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.16, ease:'back.out(1.4)' }, 0.03);
+
+    tl.to('#scissors', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.12, ease:'back.out(2)' }, 0.16);
+    tl.to('#comb', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.12, ease:'back.out(2)' }, 0.22);
+    tl.to('#mirror', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.16, ease:'back.out(1.6)' }, 0.26);
+    tl.to('#sprayBottle', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.12, ease:'back.out(2)' }, 0.38);
+
+    tl.to('#windowGlow', { opacity:0.85, duration:0.2, ease:'power1.inOut' }, 0.42);
+
+    tl.to('#teacup', { x:0, y:0, rotate:0, scale:1, opacity:1, duration:0.12, ease:'back.out(2)' }, 0.5);
+    tl.to(['#steam1','#steam2'], { opacity:0.85, duration:0.04 }, 0.56)
+      .to(['#steam1','#steam2'], { strokeDashoffset:0, duration:0.22, ease:'power1.out' }, 0.56);
+
+    tl.to('#hairFlat', { opacity:0, duration:0.2, ease:'power1.inOut' }, 0.6)
+      .to('#hairStyled', { opacity:1, scale:1, duration:0.24, ease:'back.out(1.5)' }, 0.6);
+
+    tl.to('#heartBadge', { opacity:1, scale:1, duration:0.14, ease:'back.out(2.6)' }, 0.88);
+
+    tl.to('#cap1', { opacity:1, duration:0.05 }, 0.0)
+      .to('#cap1', { opacity:0, duration:0.05 }, 0.2)
+      .to('#cap2', { opacity:1, duration:0.05 }, 0.24)
+      .to('#cap2', { opacity:0, duration:0.05 }, 0.46)
+      .to('#cap3', { opacity:1, duration:0.05 }, 0.5)
+      .to('#cap3', { opacity:0, duration:0.05 }, 0.74)
+      .to('#cap4', { opacity:1, duration:0.05 }, 0.8);
+
+    return tl;
+  }
+
+  var mm = gsap.matchMedia();
+  mm.add('(min-width: 760px)', function(){
+    buildCenterpiece(true);
+  });
+  mm.add('(max-width: 759px)', function(){
+    document.getElementById('cpPinOuter').style.height = 'auto';
+    buildCenterpiece(false);
+  });
+
+})();
+</script>
+</body>
+</html>
