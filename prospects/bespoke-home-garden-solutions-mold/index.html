@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bespoke Home &amp; Garden Solutions · Mold, Flintshire</title>
+<meta name="description" content="Family-run garden design and landscape construction around Mold, Flintshire. Patios, decking, fencing, ponds and full garden makeovers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#faf6ee;
+    --paper-dim:#f1ead9;
+    --paper-line:#e3d9c4;
+    --ink:#23262b;
+    --ink-soft:#5b5e63;
+    --accent:#2b5c8a;
+    --accent-dark:#1d3f5c;
+    --accent-tint:#dbe7f0;
+    --stone:#c9a97e;
+    --stone-line:#a9865c;
+    --grass:#6f9159;
+    --grass-dark:#4c6a3f;
+    --water:#3d7ea6;
+    --water-deep:#295f7f;
+    --wood:#8a6142;
+    --wood-dark:#6a492f;
+
+    --radius-sm:2px;
+    --radius-md:8px;
+    --radius-lg:16px;
+
+    --space-1:8px;
+    --space-2:16px;
+    --space-3:24px;
+    --space-4:36px;
+    --space-5:56px;
+    --space-6:88px;
+    --space-7:136px;
+    --space-8:208px;
+
+    --font-head:'Newsreader', Georgia, serif;
+    --font-body:'Space Grotesk', -apple-system, sans-serif;
+
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:auto;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:var(--font-head);
+    font-weight:600;
+    line-height:1.08;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-left:var(--space-3);
+    padding-right:var(--space-3);
+  }
+  @media (min-width:900px){
+    .wrap{padding-left:var(--space-5);padding-right:var(--space-5);}
+  }
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(250,246,238,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .site-head-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:var(--space-2);
+    padding-bottom:var(--space-2);
+  }
+  .brand{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .brand span{color:var(--accent);}
+  .call-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.88rem;
+    font-weight:600;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .call-pill:hover{background:var(--accent-dark);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-top:var(--space-7);
+    padding-bottom:var(--space-6);
+    position:relative;
+  }
+  .hero-kicker{
+    font-size:0.85rem;
+    color:var(--accent-dark);
+    font-weight:600;
+    letter-spacing:0.04em;
+    margin-bottom:var(--space-2);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem);
+    max-width:16ch;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    margin-top:var(--space-3);
+    max-width:52ch;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+  .hero-cta-row{
+    margin-top:var(--space-4);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:var(--space-3);
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--accent);
+    color:#fff;
+    padding:16px 28px;
+    border-radius:var(--radius-md);
+    text-decoration:none;
+    font-weight:600;
+    font-size:1.02rem;
+  }
+  .btn-primary:hover{background:var(--accent-dark);}
+  .hero-note{color:var(--ink-soft);font-size:0.95rem;}
+
+  .hero-plot{
+    margin-top:var(--space-6);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid var(--paper-line);
+    background:var(--paper-dim);
+  }
+
+  /* ---------- section basics ---------- */
+  section{padding-top:var(--space-7);padding-bottom:var(--space-7);}
+  .section-head{max-width:46ch;margin-bottom:var(--space-5);}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);}
+  .section-head p{margin-top:var(--space-2);color:var(--ink-soft);font-size:1.05rem;}
+
+  /* ---------- essence ---------- */
+  .essence{
+    background:var(--paper-dim);
+    border-top:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .essence-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-4);
+  }
+  @media (min-width:860px){
+    .essence-grid{grid-template-columns:1.1fr 1fr;align-items:start;gap:var(--space-6);}
+  }
+  .essence h2{font-size:clamp(1.9rem,3.6vw,2.7rem);max-width:14ch;}
+  .essence-body p{color:var(--ink-soft);font-size:1.08rem;}
+  .essence-body p + p{margin-top:var(--space-2);}
+  .essence-list{
+    list-style:none;
+    margin:var(--space-3) 0 0;
+    padding:0;
+    display:grid;
+    gap:var(--space-2);
+  }
+  .essence-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.98rem;
+    color:var(--ink);
+  }
+  .essence-list svg{flex:none;margin-top:3px;}
+
+  /* ---------- centerpiece ---------- */
+  .cp-outer{
+    position:relative;
+    background:var(--ink);
+  }
+  .cp-pin{
+    position:relative;
+    height:480vh;
+  }
+  .cp-sticky{
+    position:sticky;
+    top:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .cp-intro{
+    text-align:center;
+    color:#f4efe3;
+    padding:var(--space-4) var(--space-3) 0;
+  }
+  .cp-intro h2{color:#f4efe3;font-size:clamp(1.6rem,3.2vw,2.3rem);}
+  .cp-intro p{color:#cfd3d6;margin-top:var(--space-2);max-width:44ch;margin-left:auto;margin-right:auto;}
+
+  .cp-stage{
+    position:relative;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:var(--space-2) var(--space-3);
+  }
+  .cp-svg-wrap{
+    width:min(900px, 92vw);
+    max-height:66vh;
+  }
+  .cp-svg-wrap svg{width:100%;height:auto;}
+
+  .cp-captions{
+    position:relative;
+    height:64px;
+    margin-top:var(--space-1);
+  }
+  .cp-caption{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    opacity:0;
+    color:#f4efe3;
+    text-align:center;
+  }
+  .cp-caption .num{
+    font-family:var(--font-head);
+    font-style:italic;
+    color:#7fa9c8;
+    font-size:1.1rem;
+  }
+  .cp-caption .txt{font-size:1.02rem;color:#e7e2d4;}
+  .cp-caption.is-active{opacity:1;}
+
+  /* blueprint label text inside svg */
+  .bp-label{
+    font-family:var(--font-body);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    fill:#cfe0ec;
+    opacity:0;
+  }
+
+  /* ---------- services ---------- */
+  .services-list{
+    display:grid;
+    gap:var(--space-4);
+  }
+  @media (min-width:760px){
+    .services-list{grid-template-columns:repeat(2,1fr);}
+  }
+  .service-row{
+    display:flex;
+    gap:var(--space-3);
+    align-items:flex-start;
+    padding-bottom:var(--space-4);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .service-row .icon{
+    flex:none;
+    width:52px;height:52px;
+    border-radius:var(--radius-md);
+    background:var(--accent-tint);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-row h3{font-size:1.2rem;font-weight:600;}
+  .service-row p{margin-top:6px;color:var(--ink-soft);font-size:0.98rem;}
+
+  /* ---------- trust ---------- */
+  .trust{
+    background:var(--accent-dark);
+    color:#f3ede0;
+  }
+  .trust .section-head h2{color:#f3ede0;}
+  .trust .section-head p{color:#cfe0ec;}
+  .trust-stat{
+    display:flex;
+    align-items:baseline;
+    gap:var(--space-2);
+    flex-wrap:wrap;
+    margin-bottom:var(--space-5);
+  }
+  .trust-stat .big{
+    font-family:var(--font-head);
+    font-size:clamp(3rem,7vw,5rem);
+    font-weight:600;
+    color:#fff;
+  }
+  .trust-stat .cap{color:#cfe0ec;font-size:1.02rem;max-width:26ch;}
+  .trust-grid{
+    display:grid;
+    gap:var(--space-3);
+  }
+  @media (min-width:760px){
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  .trust-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:var(--radius-lg);
+    padding:var(--space-3);
+  }
+  .trust-card p{font-size:1.02rem;color:#f3ede0;}
+
+  /* ---------- closing CTA ---------- */
+  .closing{
+    text-align:center;
+  }
+  .closing h2{font-size:clamp(2rem,4.4vw,3rem);max-width:16ch;margin:0 auto;}
+  .closing p{margin-top:var(--space-2);color:var(--ink-soft);font-size:1.08rem;}
+  .closing .btn-primary{margin-top:var(--space-4);}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--paper-line);
+    padding-top:var(--space-4);
+    padding-bottom:var(--space-4);
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .footer-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-3);
+  }
+  .footer-note{
+    margin-top:var(--space-3);
+    padding-top:var(--space-3);
+    border-top:1px solid var(--paper-line);
+    font-size:0.82rem;
+    color:#8b8e93;
+  }
+
+  /* ---------- reveal utility ---------- */
+  .reveal{opacity:0;transform:translateY(18px);}
+  html.no-motion .reveal, html.no-gsap .reveal{opacity:1 !important;transform:none !important;}
+  html.no-motion .cp-pin, html.no-gsap .cp-pin{height:auto !important;}
+  html.no-motion .cp-sticky, html.no-gsap .cp-sticky{position:relative !important;top:auto !important;height:auto !important;padding:var(--space-5) 0;}
+  html.no-motion .cp-caption, html.no-gsap .cp-caption{position:relative;display:none;}
+  html.no-motion .cp-caption[data-cap="4"], html.no-gsap .cp-caption[data-cap="4"]{display:flex;opacity:1;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1 !important;transform:none !important;}
+    .cp-pin{height:auto !important;}
+    .cp-sticky{position:relative !important;top:auto !important;height:auto !important;padding:var(--space-5) 0;}
+    .cp-caption{position:relative;display:none;}
+    .cp-caption[data-cap="4"]{display:flex;opacity:1;}
+  }
+
+  /* ---------- mobile centerpiece ---------- */
+  @media (max-width:760px){
+    .cp-pin{height:auto;}
+    .cp-sticky{position:relative;top:auto;height:auto;padding:var(--space-5) 0;}
+    .cp-stage{padding:var(--space-3) var(--space-2);}
+    .cp-svg-wrap{max-height:none;}
+    .cp-captions{height:auto;position:relative;margin-top:var(--space-2);}
+    .cp-caption{position:relative;display:none;}
+    .cp-caption.is-active{display:flex;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-head-inner">
+    <div class="brand">Bespoke <span>Home &amp; Garden</span> Solutions</div>
+    <a class="call-pill" href="tel:07912565563">Call 07912 565563</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-kicker">Mold &amp; Flintshire · Garden design and landscape construction</div>
+      <h1>A garden built properly, not just mown.</h1>
+      <p class="hero-sub">Family-run garden design and landscaping around Mold, Flintshire: patios, decking, fencing, ponds and full garden rebuilds, done by people who've been doing exactly this for the best part of twenty years.</p>
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="tel:07912565563">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5c0-.6.4-1 1-1h3.2c.5 0 .9.3 1 .8l1 4a1 1 0 0 1-.3 1L7.6 11c1 2.4 2.9 4.3 5.3 5.3l1.2-1.3a1 1 0 0 1 1-.3l4 1c.5.1.8.5.8 1V20c0 .6-.4 1-1 1h-1.5C9.4 21 3 14.6 3 6.5V5z" fill="#fff"/></svg>
+          Call 07912 565563
+        </a>
+        <span class="hero-note">Based in Mold, covering the surrounding Flintshire area</span>
+      </div>
+
+      <div class="hero-plot reveal" id="heroPlot">
+        <svg viewBox="0 0 900 300" role="img" aria-label="Illustration of a landscaped garden with patio, lawn, path and pond">
+          <defs>
+            <pattern id="heroPaver" width="26" height="14" patternUnits="userSpaceOnUse">
+              <rect width="26" height="14" fill="#c9a97e"/>
+              <rect x="0" y="0" width="12" height="6" fill="none" stroke="#a9865c" stroke-width="1"/>
+              <rect x="13" y="0" width="12" height="6" fill="none" stroke="#a9865c" stroke-width="1"/>
+              <rect x="6" y="7" width="12" height="6" fill="none" stroke="#a9865c" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="heroWater" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#4f97bd"/>
+              <stop offset="1" stop-color="#295f7f"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="900" height="300" fill="#f1ead9"/>
+          <path d="M40,240 C120,120 260,60 430,70 C600,80 700,140 780,120 C830,108 860,90 880,60 L880,300 L40,300 Z" fill="#6f9159" opacity="0.9"/>
+          <rect x="60" y="150" width="170" height="90" fill="url(#heroPaver)" stroke="#a9865c" stroke-width="2"/>
+          <path d="M230,190 C300,205 330,230 400,235" stroke="#e7ddc8" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <ellipse cx="700" cy="210" rx="95" ry="52" fill="url(#heroWater)" stroke="#295f7f" stroke-width="2"/>
+          <ellipse cx="700" cy="210" rx="60" ry="30" fill="none" stroke="#bfe0ee" stroke-width="1.5" opacity="0.6"/>
+          <g stroke="#4c6a3f" stroke-width="2" opacity="0.55">
+            <path d="M300,120 v10 M312,124 v8 M324,118 v12 M480,95 v10 M492,99 v9 M600,110 v9"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="essence">
+    <div class="wrap essence-grid">
+      <div class="reveal">
+        <h2>Most gardeners turn up with a mower. This one turns up with a plan.</h2>
+      </div>
+      <div class="essence-body reveal">
+        <p>Bespoke Home &amp; Garden Solutions isn't a strim-and-go outfit. It's a proper design-and-build operation: the kind that draws up a plan for the space, then actually builds the patio, the fence, the deck or the pond that's on it. Getting on for two decades of doing this around Mold, still run as a small, hands-on, family business.</p>
+        <p>Every account of them online lands on the same two things: it's genuinely solid construction work, and it comes at a fair price for what it is, not a discount job and not an inflated one.</p>
+        <ul class="essence-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2b5c8a" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#2b5c8a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Design and build, not just maintenance
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2b5c8a" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#2b5c8a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Getting on for twenty years around Mold and Flintshire
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2b5c8a" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#2b5c8a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Family-run and fully insured
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="cp-outer">
+    <div class="cp-pin" id="cpPin">
+      <div class="cp-sticky">
+        <div class="cp-intro">
+          <h2>From plan to planted, one line at a time</h2>
+          <p>Scroll to watch a bare plot turn into a finished garden, in the same order Bespoke Home &amp; Garden Solutions actually builds one in.</p>
+        </div>
+        <div class="cp-stage">
+          <div class="cp-svg-wrap">
+            <svg id="cpSvg" viewBox="0 0 900 620" role="img" aria-label="Animated illustration of a garden plan being drawn and built, from bare plot to finished patio, lawn, fence, path and pond">
+              <defs>
+                <pattern id="gridPattern" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0V24" fill="none" stroke="#7fa9c8" stroke-width="1"/>
+                </pattern>
+                <pattern id="paverPattern2" width="30" height="16" patternUnits="userSpaceOnUse">
+                  <rect width="30" height="16" fill="#c9a97e"/>
+                  <rect x="0" y="0" width="14" height="7" fill="none" stroke="#a9865c" stroke-width="1"/>
+                  <rect x="15" y="0" width="14" height="7" fill="none" stroke="#a9865c" stroke-width="1"/>
+                  <rect x="7" y="8" width="14" height="7" fill="none" stroke="#a9865c" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="pondGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#4f97bd"/>
+                  <stop offset="1" stop-color="#295f7f"/>
+                </linearGradient>
+                <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0" stop-color="#ffd9a0" stop-opacity="0.9"/>
+                  <stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect x="0" y="0" width="900" height="620" fill="#f4ede0"/>
+              <rect id="cpGrid" x="0" y="0" width="900" height="620" fill="url(#gridPattern)" opacity="0.12"/>
+
+              <circle id="cpSun" cx="850" cy="50" r="130" fill="url(#sunGlow)"/>
+
+              <!-- house -->
+              <g id="cpHouse">
+                <rect x="60" y="20" width="240" height="80" fill="#efe4cf" stroke="#23262b" stroke-width="2.5"/>
+                <rect x="90" y="42" width="26" height="26" fill="none" stroke="#23262b" stroke-width="2"/>
+                <rect x="230" y="42" width="26" height="26" fill="none" stroke="#23262b" stroke-width="2"/>
+                <line x1="170" y1="100" x2="170" y2="122" stroke="#23262b" stroke-width="2"/>
+                <path d="M170,100 A22,22 0 0 1 192,122" fill="none" stroke="#23262b" stroke-width="1.4" opacity="0.6"/>
+              </g>
+
+              <!-- plot boundary -->
+              <path id="cpBoundary" d="M60,100 L840,100 L840,570 L60,570 Z" fill="none" stroke="#23262b" stroke-width="3"/>
+
+              <!-- lawn -->
+              <path id="cpLawnFill" d="M300,150 C420,118 570,128 660,168 C770,200 810,270 788,350 C766,432 700,505 596,536 C476,568 356,548 296,486 C238,426 226,326 248,246 C260,196 272,168 300,150 Z" fill="#6f9159"/>
+              <g id="cpLawnTicks" stroke="#4c6a3f" stroke-width="2.4" stroke-linecap="round" opacity="0.55">
+                <path d="M330,210 v14 M344,214 v11 M358,206 v16 M520,190 v14 M534,196 v10 M660,240 v14 M674,246 v10 M420,420 v14 M434,424 v10 M560,460 v14 M574,466 v10 M370,470 v14"/>
+              </g>
+
+              <!-- patio -->
+              <path id="cpPatioOutline" d="M90,110 L280,110 L280,225 L90,225 Z" fill="none" stroke="#23262b" stroke-width="2.5"/>
+              <rect id="cpPatioFill" x="90" y="110" width="190" height="115" fill="url(#paverPattern2)"/>
+              <text id="cpPatioLabel" class="bp-label" x="100" y="140">PATIO · 5.4 &#215; 3.2m</text>
+
+              <!-- path + stones -->
+              <path id="cpPathDraw" d="M280,190 C340,215 362,268 414,296 C466,324 512,352 556,384 C580,401 600,412 622,428" fill="none" stroke="#e7ddc8" stroke-width="14" stroke-linecap="round"/>
+              <g id="cpStones" fill="#efe4cf" stroke="#c9bda1" stroke-width="1.5">
+                <ellipse cx="292" cy="196" rx="9" ry="9"/>
+                <ellipse cx="336" cy="222" rx="9" ry="9"/>
+                <ellipse cx="380" cy="256" rx="9" ry="9"/>
+                <ellipse cx="440" cy="304" rx="9" ry="9"/>
+                <ellipse cx="500" cy="348" rx="9" ry="9"/>
+                <ellipse cx="560" cy="388" rx="9" ry="9"/>
+                <ellipse cx="600" cy="412" rx="9" ry="9"/>
+              </g>
+
+              <!-- fence posts along right + bottom edges -->
+              <g id="cpFencePosts" fill="#8a6142" stroke="#6a492f" stroke-width="1.5">
+                <rect x="826" y="120" width="10" height="10"/>
+                <rect x="826" y="164" width="10" height="10"/>
+                <rect x="826" y="208" width="10" height="10"/>
+                <rect x="826" y="252" width="10" height="10"/>
+                <rect x="826" y="296" width="10" height="10"/>
+                <rect x="826" y="340" width="10" height="10"/>
+                <rect x="826" y="384" width="10" height="10"/>
+                <rect x="826" y="428" width="10" height="10"/>
+                <rect x="826" y="472" width="10" height="10"/>
+                <rect x="826" y="516" width="10" height="10"/>
+                <rect x="120" y="555" width="10" height="10"/>
+                <rect x="220" y="555" width="10" height="10"/>
+                <rect x="360" y="555" width="10" height="10"/>
+                <rect x="460" y="555" width="10" height="10"/>
+                <rect x="560" y="555" width="10" height="10"/>
+                <rect x="660" y="555" width="10" height="10"/>
+                <rect x="760" y="555" width="10" height="10"/>
+              </g>
+              <text id="cpFenceLabel" class="bp-label" x="690" y="90">FENCE LINE</text>
+
+              <!-- pond -->
+              <ellipse id="cpPondOutline" cx="650" cy="440" rx="95" ry="58" fill="none" stroke="#23262b" stroke-width="2.5"/>
+              <ellipse id="cpPondFill" cx="650" cy="440" rx="95" ry="58" fill="url(#pondGradient)"/>
+              <g id="cpRipples" fill="none" stroke="#bfe0ee" stroke-width="2">
+                <ellipse cx="650" cy="440" rx="40" ry="24"/>
+                <ellipse cx="650" cy="440" rx="62" ry="37"/>
+                <ellipse cx="650" cy="440" rx="80" ry="48"/>
+              </g>
+              <text id="cpPondLabel" class="bp-label" x="600" y="380">POND</text>
+
+              <!-- pergola -->
+              <g id="cpPergolaPosts" fill="#8a6142" stroke="#6a492f" stroke-width="1.5">
+                <rect x="700" y="140" width="10" height="34"/>
+                <rect x="780" y="140" width="10" height="34"/>
+                <rect x="700" y="195" width="10" height="10"/>
+                <rect x="780" y="195" width="10" height="10"/>
+              </g>
+              <path id="cpPergolaBeams" d="M694,146 H796 M694,158 H796 M694,170 H796" stroke="#6a492f" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cp-captions">
+          <div class="cp-caption" data-cap="1"><span class="num">01</span><span class="txt">The plan: patio and boundary marked out</span></div>
+          <div class="cp-caption" data-cap="2"><span class="num">02</span><span class="txt">The structure: fencing and paving go in</span></div>
+          <div class="cp-caption" data-cap="3"><span class="num">03</span><span class="txt">The planting: lawn, path and stepping stones</span></div>
+          <div class="cp-caption" data-cap="4"><span class="num">04</span><span class="txt">The finish: pond, pergola, done</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What actually gets built</h2>
+        <p>Not a mow-and-go visit. A proper landscaping outfit that designs the space and then builds it.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="10" stroke="#2b5c8a" stroke-width="2"/><path d="M3 9l9-6 9 6" stroke="#2b5c8a" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>Garden design &amp; plans</h3>
+            <p>A proper plan for the space before anything is dug, so the finished garden actually works for how it's used.</p>
+          </div>
+        </div>
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12" stroke="#2b5c8a" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M3 15h18" stroke="#2b5c8a" stroke-width="1.6"/></svg>
+          </div>
+          <div>
+            <h3>Patios &amp; paving</h3>
+            <p>Proper laid patios and paths, built to drain and settle correctly, not just slabs dropped on sand.</p>
+          </div>
+        </div>
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 20V6M9 20V4M14 20V7M19 20V5" stroke="#2b5c8a" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3>Decking &amp; fencing</h3>
+            <p>Built to stand up to actual Welsh weather, not just look good on the day it goes up.</p>
+          </div>
+        </div>
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="13" rx="9" ry="5" stroke="#2b5c8a" stroke-width="2"/><path d="M12 13V4" stroke="#2b5c8a" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3>Ponds &amp; water features</h3>
+            <p>From a small wildlife pond to a proper feature with pump and planting.</p>
+          </div>
+        </div>
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9Z" stroke="#2b5c8a" stroke-width="2" fill="none"/></svg>
+          </div>
+          <div>
+            <h3>Garden clearance &amp; groundwork</h3>
+            <p>Overgrown, neglected or just tired: cleared and levelled properly before anything new goes in.</p>
+          </div>
+        </div>
+        <div class="service-row reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#2b5c8a" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#2b5c8a" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3>Full garden makeovers</h3>
+            <p>Start to finish, one team, one plan, rather than three different trades to chase up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What people notice</h2>
+        <p>No individual reviews are quoted here. This paraphrases the recurring themes behind the public rating.</p>
+      </div>
+      <div class="trust-stat reveal">
+        <span class="big">100%</span>
+        <span class="cap">recommended, across 20 reviews on Facebook</span>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card reveal">
+          <p>Construction-grade work: patios, decking and fencing that's actually built properly, not just fitted.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>Fair pricing for the standard of work, repeatedly described as competitive rather than cheap or inflated.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>Fully insured and still run hands-on: the same people who quote the job are the ones who build it.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>Nearly two decades doing this around Mold, long enough to have a proper local track record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2 class="reveal">Fancy a garden that's actually finished?</h2>
+      <p class="reveal">Mold and the surrounding Flintshire area. No obligation, just a conversation about what the space could be.</p>
+      <a class="btn-primary reveal" href="tel:07912565563">Call 07912 565563</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Bespoke <span>Home &amp; Garden</span> Solutions</div>
+        <div style="margin-top:8px;">Mold, Flintshire, North Wales</div>
+      </div>
+      <div>
+        <div>07912 565563</div>
+        <div style="margin-top:8px;">Serving Mold and the surrounding Flintshire area</div>
+      </div>
+    </div>
+    <div class="footer-note">Unofficial concept design created for outreach purposes. Not affiliated with or published by Bespoke Home &amp; Garden Solutions.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+
+  if (prefersReduced) {
+    document.documentElement.classList.add('no-motion');
+  }
+  if (!hasGsap) {
+    document.documentElement.classList.add('no-gsap');
+  }
+
+  if (prefersReduced || !hasGsap) {
+    var firstCap = document.querySelector('.cp-caption[data-cap="4"]');
+    if (firstCap) firstCap.classList.add('is-active');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // simple reveal on scroll for non-centerpiece content
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    gsap.fromTo(el, {opacity:0, y:18}, {
+      opacity:1, y:0, duration:0.7, ease:'power2.out',
+      scrollTrigger:{trigger:el, start:'top 88%'}
+    });
+  });
+
+  function drawLength(el){
+    if (!el || typeof el.getTotalLength !== 'function') return 0;
+    try { return el.getTotalLength(); } catch(e){ return 0; }
+  }
+
+  function buildCenterpiece(pinEnabled){
+    var svg = document.getElementById('cpSvg');
+    if (!svg) return;
+
+    var grid = document.getElementById('cpGrid');
+    var boundary = document.getElementById('cpBoundary');
+    var patioOutline = document.getElementById('cpPatioOutline');
+    var patioFill = document.getElementById('cpPatioFill');
+    var patioLabel = document.getElementById('cpPatioLabel');
+    var fencePosts = svg.querySelectorAll('#cpFencePosts rect');
+    var fenceLabel = document.getElementById('cpFenceLabel');
+    var lawnFill = document.getElementById('cpLawnFill');
+    var lawnTicks = document.getElementById('cpLawnTicks');
+    var pathDraw = document.getElementById('cpPathDraw');
+    var stones = svg.querySelectorAll('#cpStones ellipse');
+    var pondOutline = document.getElementById('cpPondOutline');
+    var pondFill = document.getElementById('cpPondFill');
+    var pondLabel = document.getElementById('cpPondLabel');
+    var ripples = svg.querySelectorAll('#cpRipples ellipse');
+    var pergolaPosts = svg.querySelectorAll('#cpPergolaPosts rect');
+    var pergolaBeams = document.getElementById('cpPergolaBeams');
+    var sun = document.getElementById('cpSun');
+
+    var boundaryLen = drawLength(boundary);
+    var patioLen = drawLength(patioOutline);
+    var pathLen = drawLength(pathDraw);
+    var pondLen = drawLength(pondOutline);
+    var beamsLen = drawLength(pergolaBeams);
+
+    gsap.set(boundary, {strokeDasharray: boundaryLen, strokeDashoffset: boundaryLen});
+    gsap.set(patioOutline, {strokeDasharray: patioLen, strokeDashoffset: patioLen});
+    gsap.set(pathDraw, {strokeDasharray: pathLen, strokeDashoffset: pathLen});
+    gsap.set(pondOutline, {strokeDasharray: pondLen, strokeDashoffset: pondLen});
+    gsap.set(pergolaBeams, {strokeDasharray: beamsLen, strokeDashoffset: beamsLen});
+
+    gsap.set(grid, {opacity:0.85});
+    gsap.set(sun, {opacity:0});
+    gsap.set(patioFill, {opacity:0});
+    gsap.set(patioLabel, {opacity:0});
+    gsap.set(fenceLabel, {opacity:0});
+    gsap.set(pondFill, {opacity:0});
+    gsap.set(pondLabel, {opacity:0});
+    gsap.set(lawnFill, {opacity:0});
+    gsap.set(lawnTicks, {opacity:0});
+    gsap.set(fencePosts, {scale:0, transformOrigin:'center'});
+    gsap.set(stones, {scale:0, transformOrigin:'center'});
+    gsap.set(ripples, {opacity:0, scale:0.4, transformOrigin:'center'});
+    gsap.set(pergolaPosts, {scaleY:0, transformOrigin:'bottom'});
+
+    var caps = document.querySelectorAll('.cp-caption');
+    function setCap(n){
+      caps.forEach(function(c){
+        c.classList.toggle('is-active', c.getAttribute('data-cap') === String(n));
+      });
+    }
+
+    var tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#cpPin',
+        start:'top top',
+        end: pinEnabled ? '+=380%' : 'bottom bottom',
+        scrub:1,
+        pin: pinEnabled ? '.cp-sticky' : false,
+        onUpdate:function(self){
+          var p = self.progress;
+          if (p < 0.28) setCap(1);
+          else if (p < 0.52) setCap(2);
+          else if (p < 0.78) setCap(3);
+          else setCap(4);
+        }
+      }
+    });
+
+    tl.to(boundary, {strokeDashoffset:0, duration:1, ease:'none'}, 0)
+      .to(patioLabel, {opacity:1, duration:0.3}, 0.15)
+      .to(patioOutline, {strokeDashoffset:0, duration:1, ease:'none'}, 0.2)
+      .to(patioFill, {opacity:1, duration:0.6}, 0.55)
+      .to(patioLabel, {opacity:0, duration:0.3}, 0.6)
+
+      .to(fenceLabel, {opacity:1, duration:0.3}, 0.7)
+      .to(fencePosts, {scale:1, duration:0.5, stagger:0.03, ease:'back.out(2)'}, 0.75)
+      .to(fenceLabel, {opacity:0, duration:0.3}, 1.15)
+
+      .to(lawnFill, {opacity:1, duration:0.7}, 1.3)
+      .to(lawnTicks, {opacity:0.55, duration:0.5}, 1.7)
+
+      .to(pathDraw, {strokeDashoffset:0, duration:0.9, ease:'none'}, 2.0)
+      .to(stones, {scale:1, duration:0.4, stagger:0.06, ease:'back.out(2.4)'}, 2.3)
+
+      .to(pondLabel, {opacity:1, duration:0.3}, 2.9)
+      .to(pondOutline, {strokeDashoffset:0, duration:0.8, ease:'none'}, 3.0)
+      .to(pondFill, {opacity:1, duration:0.5}, 3.5)
+      .to(ripples, {opacity:0.7, scale:1, duration:0.8, stagger:0.12, ease:'power1.out'}, 3.6)
+      .to(pondLabel, {opacity:0, duration:0.3}, 3.7)
+
+      .to(pergolaPosts, {scaleY:1, duration:0.4, stagger:0.08, ease:'back.out(2)'}, 3.9)
+      .to(pergolaBeams, {strokeDashoffset:0, duration:0.6, ease:'none'}, 4.1)
+
+      .to(grid, {opacity:0.12, duration:0.6}, 4.2)
+      .to(sun, {opacity:1, duration:0.6}, 4.2);
+  }
+
+  ScrollTrigger.matchMedia({
+    '(min-width: 761px)': function(){
+      buildCenterpiece(true);
+    },
+    '(max-width: 760px)': function(){
+      buildCenterpiece(false);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
