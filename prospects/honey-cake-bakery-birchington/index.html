@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Honey Cake Bakery · Birchington-on-Sea</title>
+<meta name="description" content="Bespoke, made-to-order cakes in Birchington-on-Sea, Kent. Private and advance bookings only, nothing from a display case." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#fbf2df;
+    --paper-dim:#f3e3b9;
+    --paper-line:#e3cb8d;
+    --ink:#2a1c0f;
+    --ink-soft:#6c5a3f;
+    --accent:#bf7a12;
+    --accent-dark:#8a570c;
+    --accent-tint:#f3dea0;
+
+    --hex-a:#9c5e0a;
+    --hex-b:#dd9a2c;
+    --hex-c:#f3dfa8;
+
+    --radius-sm:14px;
+    --radius-md:30px;
+    --radius-lg:60px;
+
+    --space-1:8px;
+    --space-2:16px;
+    --space-3:24px;
+    --space-4:32px;
+    --space-5:52px;
+    --space-6:80px;
+    --space-7:128px;
+    --space-8:192px;
+
+    --font-head:'Spectral', Georgia, serif;
+    --font-body:'Sora', -apple-system, sans-serif;
+
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:auto;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:var(--font-head);
+    font-weight:600;
+    line-height:1.08;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-left:var(--space-3);
+    padding-right:var(--space-3);
+  }
+  @media (min-width:900px){
+    .wrap{padding-left:var(--space-5);padding-right:var(--space-5);}
+  }
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(251,242,223,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .site-head-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:var(--space-2);
+    padding-bottom:var(--space-2);
+    gap:var(--space-2);
+  }
+  .brand{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:1.08rem;
+    letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+  .brand span{color:var(--accent);}
+  .call-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.88rem;
+    font-weight:600;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .call-pill:hover{background:var(--accent-dark);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-top:var(--space-7);
+    padding-bottom:var(--space-6);
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-5);
+    align-items:center;
+  }
+  @media (min-width:900px){
+    .hero-grid{grid-template-columns:1.15fr 0.85fr;}
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 5.6vw, 4.2rem);
+    max-width:15ch;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    margin-top:var(--space-3);
+    max-width:50ch;
+    font-size:1.14rem;
+    color:var(--ink-soft);
+  }
+  .hero-cta-row{
+    margin-top:var(--space-4);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:var(--space-3);
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--accent);
+    color:#fff;
+    padding:16px 28px;
+    border-radius:var(--radius-md);
+    text-decoration:none;
+    font-weight:600;
+    font-size:1.02rem;
+  }
+  .btn-primary:hover{background:var(--accent-dark);}
+  .hero-note{color:var(--ink-soft);font-size:0.95rem;}
+
+  .hero-art{
+    display:flex;
+    justify-content:center;
+  }
+  .hero-art svg{width:min(320px, 70vw);height:auto;}
+
+  /* ---------- section basics ---------- */
+  section{padding-top:var(--space-7);padding-bottom:var(--space-7);}
+  .section-head{max-width:48ch;margin-bottom:var(--space-5);}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);}
+  .section-head p{margin-top:var(--space-2);color:var(--ink-soft);font-size:1.05rem;}
+
+  /* ---------- essence ---------- */
+  .essence{
+    background:var(--paper-dim);
+    border-top:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .essence-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-4);
+  }
+  @media (min-width:860px){
+    .essence-grid{grid-template-columns:1.1fr 1fr;align-items:start;gap:var(--space-6);}
+  }
+  .essence h2{font-size:clamp(1.9rem,3.6vw,2.7rem);max-width:15ch;}
+  .essence-body p{color:var(--ink-soft);font-size:1.08rem;}
+  .essence-body p + p{margin-top:var(--space-2);}
+  .essence-list{
+    list-style:none;
+    margin:var(--space-3) 0 0;
+    padding:0;
+    display:grid;
+    gap:var(--space-2);
+  }
+  .essence-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.98rem;
+    color:var(--ink);
+  }
+  .essence-list svg{flex:none;margin-top:4px;}
+
+  /* ---------- centerpiece ---------- */
+  .cp-outer{
+    position:relative;
+    background:#241709;
+  }
+  .cp-pin{
+    position:relative;
+    height:460vh;
+  }
+  .cp-sticky{
+    position:sticky;
+    top:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .cp-intro{
+    text-align:center;
+    color:#f7eedb;
+    padding:var(--space-4) var(--space-3) 0;
+  }
+  .cp-intro h2{color:#f7eedb;font-size:clamp(1.6rem,3.2vw,2.3rem);}
+  .cp-intro p{color:#d8c6a0;margin-top:var(--space-2);max-width:44ch;margin-left:auto;margin-right:auto;}
+
+  .cp-stage{
+    position:relative;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:var(--space-2) var(--space-3);
+  }
+  .cp-svg-wrap{
+    width:min(640px, 88vw);
+    max-height:56vh;
+    aspect-ratio:640/760;
+    overflow:hidden;
+  }
+  .cp-svg-wrap svg{width:100%;height:100%;display:block;}
+
+  .cp-captions{
+    position:relative;
+    height:64px;
+    margin-top:var(--space-1);
+  }
+  .cp-caption{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    opacity:0;
+    color:#f7eedb;
+    text-align:center;
+    padding:0 var(--space-3);
+  }
+  .cp-caption .num{
+    font-family:var(--font-head);
+    font-style:italic;
+    color:var(--accent-tint);
+    font-size:1.1rem;
+  }
+  .cp-caption .txt{font-size:1.02rem;color:#ecdfc1;}
+  .cp-caption.is-active{opacity:1;}
+
+  .hex{stroke:#241709;stroke-width:1;stroke-opacity:0.18;}
+  .tone-a{fill:var(--hex-a);}
+  .tone-b{fill:var(--hex-b);}
+  .tone-c{fill:var(--hex-c);}
+
+  /* ---------- services ---------- */
+  .occasions{
+    display:grid;
+    gap:0;
+  }
+  .occasion-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:var(--space-2);
+    padding:var(--space-3) 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .occasion-row:first-child{padding-top:0;}
+  .occasion-name{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:var(--font-head);
+    font-size:clamp(1.3rem,2.6vw,1.7rem);
+    font-weight:600;
+  }
+  .occasion-name svg{flex:none;}
+  .occasion-desc{
+    color:var(--ink-soft);
+    font-size:1rem;
+    max-width:36ch;
+    text-align:right;
+  }
+  @media (max-width:640px){
+    .occasion-desc{text-align:left;max-width:none;}
+  }
+
+  /* ---------- trust ---------- */
+  .trust{
+    background:var(--accent-dark);
+    color:#f7eedb;
+  }
+  .trust .section-head h2{color:#f7eedb;}
+  .trust .section-head p{color:#e7cf9c;}
+  .trust-stats{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-4);
+    margin-bottom:var(--space-5);
+  }
+  @media (min-width:640px){
+    .trust-stats{grid-template-columns:1fr 1fr;}
+  }
+  .trust-stat .big{
+    font-family:var(--font-head);
+    font-size:clamp(2.6rem,6vw,4rem);
+    font-weight:600;
+    color:#fff;
+    display:block;
+  }
+  .trust-stat .cap{color:#e7cf9c;font-size:1rem;max-width:28ch;display:block;margin-top:4px;}
+  .trust-grid{
+    display:grid;
+    gap:var(--space-3);
+  }
+  @media (min-width:760px){
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  .trust-card{
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--radius-lg);
+    padding:var(--space-4);
+  }
+  .trust-card p{font-size:1.02rem;color:#f7eedb;}
+
+  /* ---------- how it works ---------- */
+  .steps{
+    list-style:none;
+    margin:0;
+    padding:0;
+    counter-reset:step;
+    max-width:56ch;
+  }
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding:0 0 var(--space-4) var(--space-6);
+    border-left:2px solid var(--paper-line);
+  }
+  .steps li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .steps li::before{
+    content:counter(step);
+    position:absolute;
+    left:calc(-1 * var(--space-5) - 1px);
+    top:0;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-family:var(--font-head);
+    font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.05rem;
+  }
+  .steps h3{font-size:1.1rem;margin-bottom:6px;}
+  .steps p{color:var(--ink-soft);}
+
+  /* ---------- closing CTA ---------- */
+  .closing{
+    text-align:center;
+  }
+  .closing h2{font-size:clamp(2rem,4.4vw,3rem);max-width:18ch;margin:0 auto;}
+  .closing p{margin-top:var(--space-2);color:var(--ink-soft);font-size:1.08rem;}
+  .closing .btn-primary{margin-top:var(--space-4);}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--paper-line);
+    padding-top:var(--space-4);
+    padding-bottom:var(--space-4);
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .footer-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-3);
+  }
+  .footer-note{
+    margin-top:var(--space-3);
+    padding-top:var(--space-3);
+    border-top:1px solid var(--paper-line);
+    font-size:0.82rem;
+    color:#8b7c5f;
+  }
+
+  /* ---------- reveal + motion fallback ---------- */
+  .reveal{opacity:0;transform:translateY(18px);}
+  html.no-motion .reveal, html.no-gsap .reveal{opacity:1 !important;transform:none !important;}
+  html.no-motion .cp-pin, html.no-gsap .cp-pin{height:auto !important;}
+  html.no-motion .cp-sticky, html.no-gsap .cp-sticky{position:relative !important;top:auto !important;height:auto !important;padding:var(--space-5) 0;}
+  html.no-motion .cp-caption, html.no-gsap .cp-caption{position:relative;display:none;}
+  html.no-motion .cp-caption[data-cap="4"], html.no-gsap .cp-caption[data-cap="4"]{display:flex;opacity:1;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1 !important;transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-head-inner">
+    <div class="brand">Honey <span>Cake Bakery</span></div>
+    <a class="call-pill" href="tel:07972887837">Call 07972 887837</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Made once. Made for you.</h1>
+        <p class="hero-sub">Honey Cake Bakery designs every cake around the order itself, nothing pre-made and nothing pulled from a display case. Based in Birchington-on-Sea, Kent, by advance booking only.</p>
+        <div class="hero-cta-row">
+          <a class="btn-primary" href="tel:07972887837">Call 07972 887837</a>
+          <span class="hero-note">Private bookings only, no passing trade</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 220 220" fill="none">
+          <polygon points="110,30 155,55 155,105 110,130 65,105 65,55" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2.5"/>
+          <polygon points="110,60 135,74 135,102 110,116 85,102 85,74" fill="none" stroke="var(--accent)" stroke-width="2"/>
+          <circle cx="110" cy="88" r="7" fill="var(--accent)"/>
+          <path d="M60 165c6-22 18-33 50-33s44 11 50 33" stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M60 165h100" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="essence">
+    <div class="wrap essence-grid">
+      <div>
+        <h2>Why there's no shop window</h2>
+      </div>
+      <div class="essence-body">
+        <p>Most bakeries bake first and sell whatever is left on the counter. This one works the other way round: nothing gets made until someone has actually booked and said what it's for. That is the entire reason it takes bookings in advance rather than opening as a walk-in shop.</p>
+        <p>It shows up in the numbers more than in any slogan. A perfect recommend rate on Facebook and a perfect rating on Google are two separate audiences agreeing independently, and a five-star food hygiene rating from the council on top of that. None of that happens by accident on a small, one-woman-band operation.</p>
+        <ul class="essence-list">
+          <li class="reveal"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="var(--accent)"/></svg> Every cake designed from scratch around one specific order</li>
+          <li class="reveal"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="var(--accent)"/></svg> No display case and no "what's left today"</li>
+          <li class="reveal"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="var(--accent)"/></svg> Booking required in advance, every day of the week</li>
+          <li class="reveal"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="var(--accent)"/></svg> Rated highly on both Facebook and Google, not just one</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="cp-outer">
+    <div class="cp-pin" id="cpPin">
+      <div class="cp-sticky">
+        <div class="cp-intro">
+          <h2>Nothing is made until you ask</h2>
+          <p>Scroll to watch one order come together, the same way every real one does.</p>
+        </div>
+        <div class="cp-stage">
+          <div class="cp-svg-wrap">
+            <svg id="cpSvg" viewBox="0 0 640 760" fill="none">
+              <circle id="cpGlow" cx="320" cy="500" r="260" fill="var(--accent-tint)" opacity="0.001"/>
+              <ellipse cx="320" cy="700" rx="170" ry="20" fill="#3a2812"/>
+              <ellipse cx="320" cy="694" rx="160" ry="15" fill="#4a3217"/>
+
+              <g id="cpBottomHex">
+                <polygon id="hc0" class="hex tone-a" points="209.7,536.5 209.7,553.5 195.0,562.0 180.3,553.5 180.3,536.5 195.0,528.0" />
+                <polygon id="hc1" class="hex tone-b" points="239.1,536.5 239.1,553.5 224.4,562.0 209.7,553.5 209.7,536.5 224.4,528.0" />
+                <polygon id="hc2" class="hex tone-c" points="268.6,536.5 268.6,553.5 253.9,562.0 239.2,553.5 239.2,536.5 253.9,528.0" />
+                <polygon id="hc3" class="hex tone-a" points="298.0,536.5 298.0,553.5 283.3,562.0 268.6,553.5 268.6,536.5 283.3,528.0" />
+                <polygon id="hc4" class="hex tone-b" points="327.5,536.5 327.5,553.5 312.8,562.0 298.1,553.5 298.1,536.5 312.8,528.0" />
+                <polygon id="hc5" class="hex tone-c" points="356.9,536.5 356.9,553.5 342.2,562.0 327.5,553.5 327.5,536.5 342.2,528.0" />
+                <polygon id="hc6" class="hex tone-a" points="386.4,536.5 386.4,553.5 371.7,562.0 357.0,553.5 357.0,536.5 371.7,528.0" />
+                <polygon id="hc7" class="hex tone-b" points="415.8,536.5 415.8,553.5 401.1,562.0 386.4,553.5 386.4,536.5 401.1,528.0" />
+                <polygon id="hc8" class="hex tone-c" points="445.3,536.5 445.3,553.5 430.6,562.0 415.9,553.5 415.9,536.5 430.6,528.0" />
+                <polygon id="hc9" class="hex tone-a" points="224.4,562.0 224.4,579.0 209.7,587.5 195.0,579.0 195.0,562.0 209.7,553.5" />
+                <polygon id="hc10" class="hex tone-b" points="253.9,562.0 253.9,579.0 239.2,587.5 224.5,579.0 224.5,562.0 239.2,553.5" />
+                <polygon id="hc11" class="hex tone-c" points="283.3,562.0 283.3,579.0 268.6,587.5 253.9,579.0 253.9,562.0 268.6,553.5" />
+                <polygon id="hc12" class="hex tone-a" points="312.8,562.0 312.8,579.0 298.1,587.5 283.4,579.0 283.4,562.0 298.1,553.5" />
+                <polygon id="hc13" class="hex tone-b" points="342.2,562.0 342.2,579.0 327.5,587.5 312.8,579.0 312.8,562.0 327.5,553.5" />
+                <polygon id="hc14" class="hex tone-c" points="371.6,562.0 371.6,579.0 356.9,587.5 342.2,579.0 342.2,562.0 356.9,553.5" />
+                <polygon id="hc15" class="hex tone-a" points="401.1,562.0 401.1,579.0 386.4,587.5 371.7,579.0 371.7,562.0 386.4,553.5" />
+                <polygon id="hc16" class="hex tone-b" points="430.5,562.0 430.5,579.0 415.8,587.5 401.1,579.0 401.1,562.0 415.8,553.5" />
+                <polygon id="hc17" class="hex tone-c" points="460.0,562.0 460.0,579.0 445.3,587.5 430.6,579.0 430.6,562.0 445.3,553.5" />
+                <polygon id="hc18" class="hex tone-a" points="209.7,587.5 209.7,604.5 195.0,613.0 180.3,604.5 180.3,587.5 195.0,579.0" />
+                <polygon id="hc19" class="hex tone-b" points="239.1,587.5 239.1,604.5 224.4,613.0 209.7,604.5 209.7,587.5 224.4,579.0" />
+                <polygon id="hc20" class="hex tone-c" points="268.6,587.5 268.6,604.5 253.9,613.0 239.2,604.5 239.2,587.5 253.9,579.0" />
+                <polygon id="hc21" class="hex tone-a" points="298.0,587.5 298.0,604.5 283.3,613.0 268.6,604.5 268.6,587.5 283.3,579.0" />
+                <polygon id="hc22" class="hex tone-b" points="327.5,587.5 327.5,604.5 312.8,613.0 298.1,604.5 298.1,587.5 312.8,579.0" />
+                <polygon id="hc23" class="hex tone-c" points="356.9,587.5 356.9,604.5 342.2,613.0 327.5,604.5 327.5,587.5 342.2,579.0" />
+                <polygon id="hc24" class="hex tone-a" points="386.4,587.5 386.4,604.5 371.7,613.0 357.0,604.5 357.0,587.5 371.7,579.0" />
+                <polygon id="hc25" class="hex tone-b" points="415.8,587.5 415.8,604.5 401.1,613.0 386.4,604.5 386.4,587.5 401.1,579.0" />
+                <polygon id="hc26" class="hex tone-c" points="445.3,587.5 445.3,604.5 430.6,613.0 415.9,604.5 415.9,587.5 430.6,579.0" />
+                <polygon id="hc27" class="hex tone-a" points="224.4,613.0 224.4,630.0 209.7,638.5 195.0,630.0 195.0,613.0 209.7,604.5" />
+                <polygon id="hc28" class="hex tone-b" points="253.9,613.0 253.9,630.0 239.2,638.5 224.5,630.0 224.5,613.0 239.2,604.5" />
+                <polygon id="hc29" class="hex tone-c" points="283.3,613.0 283.3,630.0 268.6,638.5 253.9,630.0 253.9,613.0 268.6,604.5" />
+                <polygon id="hc30" class="hex tone-a" points="312.8,613.0 312.8,630.0 298.1,638.5 283.4,630.0 283.4,613.0 298.1,604.5" />
+                <polygon id="hc31" class="hex tone-b" points="342.2,613.0 342.2,630.0 327.5,638.5 312.8,630.0 312.8,613.0 327.5,604.5" />
+                <polygon id="hc32" class="hex tone-c" points="371.6,613.0 371.6,630.0 356.9,638.5 342.2,630.0 342.2,613.0 356.9,604.5" />
+                <polygon id="hc33" class="hex tone-a" points="401.1,613.0 401.1,630.0 386.4,638.5 371.7,630.0 371.7,613.0 386.4,604.5" />
+                <polygon id="hc34" class="hex tone-b" points="430.5,613.0 430.5,630.0 415.8,638.5 401.1,630.0 401.1,613.0 415.8,604.5" />
+                <polygon id="hc35" class="hex tone-c" points="460.0,613.0 460.0,630.0 445.3,638.5 430.6,630.0 430.6,613.0 445.3,604.5" />
+              </g>
+
+              <rect id="cpBottomOutline" x="170" y="520" width="300" height="140" rx="22" stroke="#3a2812" stroke-width="3" fill="none"/>
+
+              <rect id="cpBoard" x="158" y="505" width="324" height="18" rx="9" fill="#efe0b4" stroke="#3a2812" stroke-opacity="0.2" stroke-width="1"/>
+
+              <g id="cpTopHex">
+                <polygon id="hc36" class="hex tone-b" points="266.0,415.5 266.0,430.5 253.0,438.0 240.0,430.5 240.0,415.5 253.0,408.0" />
+                <polygon id="hc37" class="hex tone-a" points="292.0,415.5 292.0,430.5 279.0,438.0 266.0,430.5 266.0,415.5 279.0,408.0" />
+                <polygon id="hc38" class="hex tone-c" points="318.0,415.5 318.0,430.5 305.0,438.0 292.0,430.5 292.0,415.5 305.0,408.0" />
+                <polygon id="hc39" class="hex tone-b" points="343.9,415.5 343.9,430.5 330.9,438.0 317.9,430.5 317.9,415.5 330.9,408.0" />
+                <polygon id="hc40" class="hex tone-a" points="369.9,415.5 369.9,430.5 356.9,438.0 343.9,430.5 343.9,415.5 356.9,408.0" />
+                <polygon id="hc41" class="hex tone-c" points="395.9,415.5 395.9,430.5 382.9,438.0 369.9,430.5 369.9,415.5 382.9,408.0" />
+                <polygon id="hc42" class="hex tone-b" points="279.0,438.0 279.0,453.0 266.0,460.5 253.0,453.0 253.0,438.0 266.0,430.5" />
+                <polygon id="hc43" class="hex tone-a" points="305.0,438.0 305.0,453.0 292.0,460.5 279.0,453.0 279.0,438.0 292.0,430.5" />
+                <polygon id="hc44" class="hex tone-c" points="331.0,438.0 331.0,453.0 318.0,460.5 305.0,453.0 305.0,438.0 318.0,430.5" />
+                <polygon id="hc45" class="hex tone-b" points="356.9,438.0 356.9,453.0 343.9,460.5 330.9,453.0 330.9,438.0 343.9,430.5" />
+                <polygon id="hc46" class="hex tone-a" points="382.9,438.0 382.9,453.0 369.9,460.5 356.9,453.0 356.9,438.0 369.9,430.5" />
+                <polygon id="hc47" class="hex tone-c" points="408.9,438.0 408.9,453.0 395.9,460.5 382.9,453.0 382.9,438.0 395.9,430.5" />
+                <polygon id="hc48" class="hex tone-b" points="266.0,460.5 266.0,475.5 253.0,483.0 240.0,475.5 240.0,460.5 253.0,453.0" />
+                <polygon id="hc49" class="hex tone-a" points="292.0,460.5 292.0,475.5 279.0,483.0 266.0,475.5 266.0,460.5 279.0,453.0" />
+                <polygon id="hc50" class="hex tone-c" points="318.0,460.5 318.0,475.5 305.0,483.0 292.0,475.5 292.0,460.5 305.0,453.0" />
+                <polygon id="hc51" class="hex tone-b" points="343.9,460.5 343.9,475.5 330.9,483.0 317.9,475.5 317.9,460.5 330.9,453.0" />
+                <polygon id="hc52" class="hex tone-a" points="369.9,460.5 369.9,475.5 356.9,483.0 343.9,475.5 343.9,460.5 356.9,453.0" />
+                <polygon id="hc53" class="hex tone-c" points="395.9,460.5 395.9,475.5 382.9,483.0 369.9,475.5 369.9,460.5 382.9,453.0" />
+                <polygon id="hc54" class="hex tone-b" points="279.0,483.0 279.0,498.0 266.0,505.5 253.0,498.0 253.0,483.0 266.0,475.5" />
+                <polygon id="hc55" class="hex tone-a" points="305.0,483.0 305.0,498.0 292.0,505.5 279.0,498.0 279.0,483.0 292.0,475.5" />
+                <polygon id="hc56" class="hex tone-c" points="331.0,483.0 331.0,498.0 318.0,505.5 305.0,498.0 305.0,483.0 318.0,475.5" />
+                <polygon id="hc57" class="hex tone-b" points="356.9,483.0 356.9,498.0 343.9,505.5 330.9,498.0 330.9,483.0 343.9,475.5" />
+                <polygon id="hc58" class="hex tone-a" points="382.9,483.0 382.9,498.0 369.9,505.5 356.9,498.0 356.9,483.0 369.9,475.5" />
+                <polygon id="hc59" class="hex tone-c" points="408.9,483.0 408.9,498.0 395.9,505.5 382.9,498.0 382.9,483.0 395.9,475.5" />
+              </g>
+
+              <rect id="cpTopOutline" x="230" y="400" width="180" height="110" rx="18" stroke="#3a2812" stroke-width="3" fill="none"/>
+
+              <path id="cpDrip" d="M395 415 C 410 430, 388 448, 402 466 C 412 478, 398 486, 399 468" stroke="#8a560c" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <circle id="cpDrop1" cx="401" cy="474" r="5.5" fill="#8a560c"/>
+              <circle id="cpDrop2" cx="394" cy="488" r="4" fill="#8a560c"/>
+              <circle id="cpDrop3" cx="406" cy="497" r="3" fill="#8a560c"/>
+
+              <rect id="cpRibbon" x="170" y="600" width="300" height="22" fill="#8a560c" opacity="0.001"/>
+              <g id="cpBow">
+                <polygon points="320,611 296,598 296,624" fill="#6f4409"/>
+                <polygon points="320,611 344,598 344,624" fill="#6f4409"/>
+                <circle cx="320" cy="611" r="9" fill="#8a560c"/>
+              </g>
+
+              <rect id="cpCandleStick" x="317" y="358" width="6" height="42" rx="2" fill="#f3e3b9"/>
+              <path id="cpFlame" d="M320 330c8 10 8 20 0 27-8-7-8-17 0-27Z" fill="#e8921f"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cp-captions">
+          <div class="cp-caption is-active" data-cap="1"><span class="num">01</span><span class="txt">Nothing on the shelf, nothing pre-made</span></div>
+          <div class="cp-caption" data-cap="2"><span class="num">02</span><span class="txt">Every fleck placed on purpose</span></div>
+          <div class="cp-caption" data-cap="3"><span class="num">03</span><span class="txt">Built around what you actually asked for</span></div>
+          <div class="cp-caption" data-cap="4"><span class="num">04</span><span class="txt">One cake. Booked ahead. Made once, for you.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="occasions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What gets booked</h2>
+        <p>Five words people actually use when they ring: birthday, wedding, christening, anniversary, or "I don't know, surprise me".</p>
+      </div>
+      <div class="occasions">
+        <div class="occasion-row reveal">
+          <div class="occasion-name">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3c2 2 2 4 0 6-2-2-2-4 0-6Z" stroke="var(--accent)" stroke-width="2"/><path d="M6 21v-7a6 6 0 0 1 12 0v7" stroke="var(--accent)" stroke-width="2" fill="none"/><path d="M5 21h14" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+            Birthdays
+          </div>
+          <div class="occasion-desc">Big numbers, small numbers, whatever candle count is true this year.</div>
+        </div>
+        <div class="occasion-row reveal">
+          <div class="occasion-name">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="14" r="6" stroke="var(--accent)" stroke-width="2"/><circle cx="16" cy="14" r="6" stroke="var(--accent)" stroke-width="2"/></svg>
+            Weddings &amp; engagements
+          </div>
+          <div class="occasion-desc">Tiered and designed around the day, not picked off a catalogue page.</div>
+        </div>
+        <div class="occasion-row reveal">
+          <div class="occasion-name">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v6M12 2l-3 3M12 2l3 3M4 14l3-3M20 14l-3-3M4 14l3 3M20 14l-3 3M9 21l3-3M15 21l-3-3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+            Christenings &amp; celebrations
+          </div>
+          <div class="occasion-desc">Christenings, retirements, promotions, the ones worth marking properly.</div>
+        </div>
+        <div class="occasion-row reveal">
+          <div class="occasion-name">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" stroke="var(--accent)" stroke-width="2" fill="none"/></svg>
+            Anniversaries
+          </div>
+          <div class="occasion-desc">The ones people quietly book every single year without fail.</div>
+        </div>
+        <div class="occasion-row reveal">
+          <div class="occasion-name">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polygon points="12,3 20,8 20,16 12,21 4,16 4,8" stroke="var(--accent)" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="2.4" fill="var(--accent)"/></svg>
+            Something you can't name yet
+          </div>
+          <div class="occasion-desc">Describe the occasion, not the cake, and go from there together.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What the numbers actually say</h2>
+        <p>Nothing quoted here is invented. This is what is publicly on record.</p>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat reveal">
+          <span class="big">100%</span>
+          <span class="cap">recommended on Facebook, from 38 reviews</span>
+        </div>
+        <div class="trust-stat reveal">
+          <span class="big">5.00/5</span>
+          <span class="cap">average rating on Google, from 32 reviews</span>
+        </div>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card reveal">
+          <p>A perfect run on two separate platforms, Facebook and Google, something most small businesses only manage on one.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>A five-star food hygiene rating from Thanet District Council, "very good" across every category inspected.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>Booking required days or weeks ahead, the clearest sign demand already outpaces a walk-in shop.</p>
+        </div>
+        <div class="trust-card reveal">
+          <p>Every cake made to order, so what you collect was never sitting on a shelf waiting for someone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>How a booking actually works</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal">
+          <h3>Ring or message with the occasion</h3>
+          <p>The date, roughly how many it's for, and what it's for. That's all that's needed to start.</p>
+        </li>
+        <li class="reveal">
+          <h3>Agree the design together</h3>
+          <p>Flavour, size and look get settled between you, not picked from a fixed menu.</p>
+        </li>
+        <li class="reveal">
+          <h3>Collect on the day</h3>
+          <p>Made specifically for your booking. Nothing before it, nothing generic.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2 class="reveal">Worth booking ahead for</h2>
+      <p class="reveal">Birchington-on-Sea, Kent, by advance booking only. No obligation, just a conversation about what you need.</p>
+      <a class="btn-primary reveal" href="tel:07972887837">Call 07972 887837</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Honey <span>Cake Bakery</span></div>
+        <div style="margin-top:8px;">44 King's Road, Birchington-on-Sea, Kent, CT7 0DT</div>
+      </div>
+      <div>
+        <div>07972 887837</div>
+        <div style="margin-top:8px;">HoneyCakeBakers@gmail.com</div>
+        <div style="margin-top:8px;">Open every day, by appointment. Private and advance bookings only.</div>
+      </div>
+    </div>
+    <div class="footer-note">Unofficial concept design created for outreach purposes. Not affiliated with or published by Honey Cake Bakery.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+
+  if (prefersReduced) {
+    document.documentElement.classList.add('no-motion');
+  }
+  if (!hasGsap) {
+    document.documentElement.classList.add('no-gsap');
+  }
+
+  if (prefersReduced || !hasGsap) {
+    var lastCap = document.querySelector('.cp-caption[data-cap="4"]');
+    if (lastCap) lastCap.classList.add('is-active');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    gsap.fromTo(el, {opacity:0, y:18}, {
+      opacity:1, y:0, duration:0.7, ease:'power2.out',
+      scrollTrigger:{trigger:el, start:'top 88%'}
+    });
+  });
+
+  var HEX_SCATTER={
+    hc0:{x:23,y:-457,r:45},hc1:{x:-152,y:-361,r:-40},hc2:{x:-190,y:-368,r:-139},hc3:{x:-1,y:-478,r:-123},hc4:{x:-37,y:-288,r:-113},
+    hc5:{x:-183,y:-338,r:134},hc6:{x:-7,y:-396,r:143},hc7:{x:-344,y:-280,r:-63},hc8:{x:-317,y:-466,r:-57},hc9:{x:293,y:-476,r:24},
+    hc10:{x:162,y:-428,r:14},hc11:{x:-203,y:-506,r:-88},hc12:{x:127,y:-414,r:-56},hc13:{x:42,y:-408,r:-60},hc14:{x:134,y:-346,r:-77},
+    hc15:{x:-23,y:-390,r:113},hc16:{x:37,y:-448,r:144},hc17:{x:-347,y:-416,r:77},hc18:{x:-77,y:-424,r:-138},hc19:{x:194,y:-355,r:22},
+    hc20:{x:284,y:-468,r:59},hc21:{x:92,y:-401,r:-13},hc22:{x:204,y:-310,r:-8},hc23:{x:73,y:-531,r:60},hc24:{x:33,y:-298,r:97},
+    hc25:{x:-206,y:-450,r:51},hc26:{x:-388,y:-431,r:-100},hc27:{x:-112,y:-556,r:80},hc28:{x:-134,y:-510,r:-33},hc29:{x:266,y:-552,r:-15},
+    hc30:{x:51,y:-350,r:96},hc31:{x:204,y:-502,r:-25},hc32:{x:-119,y:-350,r:137},hc33:{x:-268,y:-528,r:-80},hc34:{x:-251,y:-450,r:27},
+    hc35:{x:-263,y:-570,r:-24},hc36:{x:-9,y:-231,r:136},hc37:{x:151,y:-244,r:35},hc38:{x:117,y:-360,r:120},hc39:{x:151,y:-154,r:89},
+    hc40:{x:-99,y:-273,r:-119},hc41:{x:15,y:-357,r:-130},hc42:{x:-115,y:-354,r:-48},hc43:{x:-232,y:-396,r:-105},hc44:{x:-229,y:-304,r:-142},
+    hc45:{x:193,y:-242,r:-105},hc46:{x:-194,y:-308,r:-41},hc47:{x:-295,y:-184,r:148},hc48:{x:47,y:-297,r:-124},hc49:{x:-190,y:-332,r:-71},
+    hc50:{x:206,y:-378,r:-143},hc51:{x:251,y:-286,r:-106},hc52:{x:-12,y:-411,r:8},hc53:{x:215,y:-202,r:59},hc54:{x:-85,y:-348,r:-100},
+    hc55:{x:186,y:-308,r:84},hc56:{x:-97,y:-384,r:93},hc57:{x:257,y:-228,r:92},hc58:{x:135,y:-256,r:-82},hc59:{x:-66,y:-352,r:-141}
+  };
+
+  function drawLength(el){
+    if (!el || typeof el.getTotalLength !== 'function') return 0;
+    try { return el.getTotalLength(); } catch(e){ return 0; }
+  }
+
+  function buildCenterpiece(pinEnabled){
+    var svg = document.getElementById('cpSvg');
+    if (!svg) return;
+
+    var bottomHex = svg.querySelectorAll('#cpBottomHex polygon');
+    var topHex = svg.querySelectorAll('#cpTopHex polygon');
+    var bottomOutline = document.getElementById('cpBottomOutline');
+    var topOutline = document.getElementById('cpTopOutline');
+    var glow = document.getElementById('cpGlow');
+    var drip = document.getElementById('cpDrip');
+    var drops = [document.getElementById('cpDrop1'), document.getElementById('cpDrop2'), document.getElementById('cpDrop3')];
+    var ribbon = document.getElementById('cpRibbon');
+    var bow = document.getElementById('cpBow');
+    var candleStick = document.getElementById('cpCandleStick');
+    var flame = document.getElementById('cpFlame');
+
+    [].forEach.call(bottomHex, function(el){
+      var s = HEX_SCATTER[el.id] || {x:0,y:0,r:0};
+      gsap.set(el, {x:s.x, y:s.y, rotation:s.r, scale:0.65, transformOrigin:'center'});
+    });
+    [].forEach.call(topHex, function(el){
+      var s = HEX_SCATTER[el.id] || {x:0,y:0,r:0};
+      gsap.set(el, {x:s.x, y:s.y, rotation:s.r, scale:0.65, transformOrigin:'center'});
+    });
+
+    var bottomLen = drawLength(bottomOutline);
+    var topLen = drawLength(topOutline);
+    var dripLen = drawLength(drip);
+    gsap.set(bottomOutline, {strokeDasharray:bottomLen, strokeDashoffset:bottomLen});
+    gsap.set(topOutline, {strokeDasharray:topLen, strokeDashoffset:topLen});
+    gsap.set(drip, {strokeDasharray:dripLen, strokeDashoffset:dripLen});
+    gsap.set(glow, {opacity:0});
+    gsap.set(drops, {scale:0, transformOrigin:'center'});
+    gsap.set(ribbon, {opacity:0});
+    gsap.set(bow, {opacity:0, scale:0.5, transformOrigin:'320px 611px'});
+    gsap.set(candleStick, {opacity:0, y:14});
+    gsap.set(flame, {opacity:0, scale:0.4, transformOrigin:'320px 345px'});
+
+    var caps = document.querySelectorAll('.cp-caption');
+    function setCap(n){
+      caps.forEach(function(c){
+        c.classList.toggle('is-active', c.getAttribute('data-cap') === String(n));
+      });
+    }
+
+    var tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#cpPin',
+        start:'top top',
+        end: pinEnabled ? '+=360%' : 'bottom bottom',
+        scrub:1,
+        pin: pinEnabled ? '.cp-sticky' : false,
+        onUpdate:function(self){
+          var p = self.progress;
+          if (p < 0.45) setCap(1);
+          else if (p < 0.72) setCap(2);
+          else if (p < 0.88) setCap(3);
+          else setCap(4);
+        }
+      }
+    });
+
+    tl.to(bottomHex, {x:0, y:0, rotation:0, scale:1, duration:0.55, ease:'power2.out', stagger:{each:0.022, from:'random'}}, 0.1)
+      .to(topHex, {x:0, y:0, rotation:0, scale:1, duration:0.5, ease:'power2.out', stagger:{each:0.025, from:'random'}}, 1.35)
+      .to(bottomOutline, {strokeDashoffset:0, duration:0.5, ease:'none'}, 1.9)
+      .to(topOutline, {strokeDashoffset:0, duration:0.4, ease:'none'}, 2.1)
+      .to(drip, {strokeDashoffset:0, duration:0.4, ease:'none'}, 2.35)
+      .to(drops, {scale:1, duration:0.3, stagger:0.08, ease:'back.out(2.2)'}, 2.6)
+      .to(ribbon, {opacity:1, duration:0.3}, 2.75)
+      .to(bow, {opacity:1, scale:1, duration:0.35, ease:'back.out(2)'}, 2.85)
+      .to(candleStick, {opacity:1, y:0, duration:0.3}, 3.0)
+      .to(glow, {opacity:0.55, duration:0.5}, 3.0)
+      .to(flame, {opacity:1, scale:1, duration:0.3, ease:'back.out(1.8)'}, 3.15);
+
+    gsap.to(flame, {scaleY:1.08, scaleX:0.95, duration:0.9, repeat:-1, yoyo:true, ease:'sine.inOut', transformOrigin:'320px 357px'});
+  }
+
+  ScrollTrigger.matchMedia({
+    '(min-width: 761px)': function(){
+      buildCenterpiece(true);
+    },
+    '(max-width: 760px)': function(){
+      buildCenterpiece(false);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
